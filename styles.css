@@ -111,6 +111,10 @@ header h1 {
     /* Reset margins that interfere with absolute positioning */
     margin: 0; 
 
+    /* 🔴 ADD OR UPDATE THESE SIZE PROPERTIES 🔴 */
+    width: 150px; 
+    height: 200px;
+
     text-align: center;
     padding: 20px;
     background-color: white;
