@@ -90,27 +90,29 @@ header h1 {
 }
 
 .wish-list {
-    /*display: flex;*/
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    /* REMOVED: flex-wrap: wrap; justify-content: center; gap: 15px; */
     
     /* 🔴 NEW POSITIONING RULES 🔴 */
-    position: absolute; /* Take it out of the normal flow */
-    width: 100%;       /* Ensure it spans the full width to keep it centered */
+    position: absolute; 
+    width: 100%;       
+    left: 0; /* Add this to start positioning from the left edge */
     
     /* Adjust this value to move the row up or down */
-    top: 450px; /* Start with a value like 450px and adjust as needed */
-    
-    /* If you were using the media queries before, you can now remove them */
+    top: 300px; /* **Start here (I've changed this from 450px to 300px) and adjust as needed.** */
+    height: 600px; /* **Add a reasonable height to contain all cards** */
 }
 
 
 /* styles.css */
 .person {
+    /* Set positioning for individual control */
+    position: absolute; 
+    
+    /* Reset margins that interfere with absolute positioning */
+    margin: 0; 
+
     text-align: center;
     padding: 20px;
-    margin: 20px;
     background-color: white;
     border-radius: 10px;
     /* This adds the base shadow colors to simulate string lights */
@@ -144,3 +146,40 @@ header h1 {
     object-fit: cover;
 }
 
+/* --- Individual Card Positioning (Adjust these values) --- */
+
+/* Dustin (Far Left) */
+#dustin-card {
+    left: 10%; 
+    top: 50px; 
+}
+
+/* Kaelynne */
+#kaelynne-card {
+    left: 25%;
+    top: 250px; 
+}
+
+/* Mathew (Center, Lowest) */
+#mathew-card {
+    left: 40%;
+    top: 350px; 
+}
+
+/* Alexander */
+#alexander-card {
+    left: 55%;
+    top: 150px; 
+}
+
+/* Cura */
+#cura-card {
+    left: 70%;
+    top: 50px; 
+}
+
+/* Lilah (Far Right, Lowest) */
+#lilah-card {
+    left: 85%;
+    top: 350px; 
+}
