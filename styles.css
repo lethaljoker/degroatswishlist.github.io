@@ -90,7 +90,7 @@ header h1 {
 }
 
 .wish-list {
-    display: flex;
+    /*display: flex;*/
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
