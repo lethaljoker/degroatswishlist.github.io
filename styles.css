@@ -1,0 +1,137 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    /*background-image: url('https://img.freepik.com/free-vector/gradient-christmas-tinsel-background_52683-76117.jpg');*/
+    background-image: url('./images/xmas.jpg');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-attachment: fixed; /* Keeps the background fixed during scrolling */
+    color: #000000; /* Optional: change text color for better visibility */
+}
+
+/* styles.css */
+@keyframes colorChange {
+    0% { color: #ff0000; }   /* Red */
+    33% { color: #006400; }  /* Green */
+    66% { color: #ffd700; }  /* Gold */
+    100% { color: #ff0000; } /* Back to Red */
+}
+
+header {
+    margin: 5px 0;
+    width: auto; /* Set this to auto so it doesn't stretch full width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: colorChange 3s infinite;
+
+}
+
+
+header h1 {
+    animation: colorChange 3s infinite;
+}
+
+#countdown {
+    font-size: 1.2em;
+    color: #ff0000;
+}
+
+#wishlist-header {
+    text-align: center;
+    width: auto; /* Set this to auto so it doesn't stretch full width */
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 10px;
+    /* This adds the base shadow colors to simulate string lights */
+    box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
+    animation: blink 3.5s infinite;
+}
+
+/* Flashing lights animation */
+@keyframes blink {
+    0% {
+        box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
+    }
+    25% {
+        box-shadow: 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red;
+    }
+    50% {
+        box-shadow: 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow;
+    }
+    75% {
+        box-shadow: 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green;
+    }
+    100% {
+        box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
+    }
+}
+
+.wish-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+/* styles.css */
+.person {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 10px;
+    /* This adds the base shadow colors to simulate string lights */
+    box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
+    animation: blink 3.5s infinite;
+}
+
+/* Flashing lights animation */
+@keyframes blink {
+    0% {
+        box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
+    }
+    25% {
+        box-shadow: 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red;
+    }
+    50% {
+        box-shadow: 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow;
+    }
+    75% {
+        box-shadow: 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green;
+    }
+    100% {
+        box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
+    }
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+
+@media (min-width: 768px) {
+    .wish-list {
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 767px) {
+    .wish-list {
+        margin-top: 40px;
+    }
+}
+
