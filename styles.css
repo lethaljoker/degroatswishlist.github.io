@@ -12,6 +12,13 @@ body {
     background-repeat: no-repeat; /* Prevents repeating */
     background-attachment: fixed; /* Keeps the background fixed during scrolling */
     color: #000000; /* Optional: change text color for better visibility */
+    position: relative; /* Set body as the positioning context */
+}
+
+main {
+    /* To allow the .wish-list to be positioned relative to the body */
+    position: relative;
+    width: 100%;
 }
 
 /* styles.css */
@@ -87,6 +94,15 @@ header h1 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
+    
+    /* 🔴 NEW POSITIONING RULES 🔴 */
+    position: absolute; /* Take it out of the normal flow */
+    width: 100%;       /* Ensure it spans the full width to keep it centered */
+    
+    /* Adjust this value to move the row up or down */
+    top: 450px; /* Start with a value like 450px and adjust as needed */
+    
+    /* If you were using the media queries before, you can now remove them */
 }
 
 
@@ -126,19 +142,5 @@ header h1 {
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
-}
-
-
-
-@media (min-width: 768px) {
-    .wish-list {
-        margin-top: 80px;
-    }
-}
-
-@media (max-width: 767px) {
-    .wish-list {
-        margin-top: 40px;
-    }
 }
 
