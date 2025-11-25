@@ -28,7 +28,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5px;
+    padding: 5px; /* This padding is likely fine */
     border: 2px solid #ccc;
     border-radius: 10px;
     background-color: #fff;
@@ -50,7 +50,7 @@ header h1 {
 #wishlist-header {
     text-align: center;
     width: auto; /* Set this to auto so it doesn't stretch full width */
-    padding: 20px;
+    padding: 10px;
     margin: 20px;
     background-color: white;
     border-radius: 10px;
