@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     /*background-image: url('https://img.freepik.com/free-vector/gradient-christmas-tinsel-background_52683-76117.jpg');*/
-    background-image: url('./xmas_pic.jpg');
+    background-image: url('xmas_pic.jpg');
     background-size: cover; /* Ensures the image covers the entire background */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents repeating */
