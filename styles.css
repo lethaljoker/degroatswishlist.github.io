@@ -112,8 +112,8 @@ header h1 {
     margin: 0; 
 
     /* 🔴 ADD OR UPDATE THESE SIZE PROPERTIES 🔴 */
-    width: 300px; 
-    height: 400px;
+    width: 450px; 
+    height: 600px;
 
     text-align: center;
     padding: 20px;
@@ -144,8 +144,8 @@ header h1 {
 }
 
 .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
 }
