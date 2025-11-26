@@ -166,8 +166,8 @@ header h1 {
 
 /* Mathew (Center, Lowest) */
 #mathew-card {
-    left: 45%;
-    top: 1150px; 
+    left: 50%;
+    top: 1200px; 
 }
 
 /* Alexander */
@@ -184,6 +184,6 @@ header h1 {
 
 /* Lilah (Far Right, Lowest) */
 #lilah-card {
-    left: 70%;
-    top: 1250px; 
+    left: 75%;
+    top: 1550px; 
 }
