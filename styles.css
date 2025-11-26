@@ -155,18 +155,18 @@ header h1 {
 /* Dustin (Far Left) */
 #dustin-card {
     left: 15%; 
-    top: 50px; 
+    top: 150px; 
 }
 
 /* Kaelynne */
 #kaelynne-card {
     left: 35%;
-    top: 700px; 
+    top: 950px; 
 }
 
 /* Mathew (Center, Lowest) */
 #mathew-card {
-    left: 55%;
+    left: 45%;
     top: 350px; 
 }
 
@@ -185,5 +185,5 @@ header h1 {
 /* Lilah (Far Right, Lowest) */
 #lilah-card {
     left: 70%;
-    top: 750px; 
+    top: 950px; 
 }
