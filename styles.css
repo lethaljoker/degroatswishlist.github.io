@@ -161,19 +161,19 @@ header h1 {
 /* Kaelynne */
 #kaelynne-card {
     left: 35%;
-    top: 200px; 
+    top: 700px; 
 }
 
 /* Mathew (Center, Lowest) */
 #mathew-card {
-    left: 60%;
+    left: 55%;
     top: 350px; 
 }
 
 /* Alexander */
 #alexander-card {
-    left: 75%;
-    top: 150px; 
+    left: 60%;
+    top: 550px; 
 }
 
 /* Cura */
@@ -185,5 +185,5 @@ header h1 {
 /* Lilah (Far Right, Lowest) */
 #lilah-card {
     left: 70%;
-    top: 550px; 
+    top: 750px; 
 }
