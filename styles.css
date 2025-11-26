@@ -50,19 +50,20 @@ header {
 
 
 header h1 {
+    font-size: 2.5em;
     animation: colorChange 3s infinite;
 }
 
 #countdown {
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: #ff0000;
 }
 
 #wishlist-header {
     text-align: center;
     width: auto; /* Set this to auto so it doesn't stretch full width */
-    padding: 10px;
-    margin: 20px;
+    padding: 20px 40px;
+    margin: 30px;
     background-color: white;
     border-radius: 10px;
     /* This adds the base shadow colors to simulate string lights */
