@@ -81,15 +81,18 @@ header h1 {
 }
 
 .wish-list {
-    /* --- NEW DESKTOP GRID LAYOUT (2x3) --- */
-    display: flex; /* Enable flexible layout */
-    flex-wrap: wrap; /* Allows items to wrap onto the next line */
-    justify-content: center; /* Center the entire block horizontally */
-    gap: 30px; /* Space between cards */
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
     
-    /* Reset positioning properties */
+    /* 🔴 ADJUST GAP for better spacing/wrapping */
+    gap: 30px 40px; /* Top/Bottom gap: 30px, Left/Right gap: 40px */
+    
+    /* 🔴 OPTIONAL: Set a max width to help define the wrapping point */
+    max-width: 800px; /* Ensure space for 3 cards (200px each) + 2 gaps (40px each) */
+    margin: 50px auto 0 auto; /* Center the whole wish list container */
+    
     position: static;
-    margin-top: 50px; /* Space below the header */
     height: auto;
 }
 
@@ -100,12 +103,12 @@ header h1 {
     position: static; 
     margin: 0;
     
-    /* Define card size and allow space for three cards side-by-side */
-    width: 150px; /* Set a fixed width for the card */
-    height: 200px; /* Set a fixed height */
+    /* 🔴 NEW SIZE FOR BIGGER DESKTOP BOXES */
+    width: 200px; 
+    height: 250px;
     
     text-align: center;
-    padding: 20px;
+    padding: 10px; /* Reduced padding to help items fit within the height */
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
@@ -184,7 +187,7 @@ header h1 {
         /* Use 'contain' to ensure the entire image is visible, even if it leaves space */
         /* OR use 'cover' and adjust position to show the important part */
         background-size: contain; 
-        background-position: center top; /* Focus the top of the image */
+        background-position: center center; /* Focus the top of the image */
         background-attachment: scroll; /* Allow background to scroll with content on mobile */
     }
 
