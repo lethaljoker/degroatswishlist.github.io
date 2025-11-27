@@ -4,7 +4,7 @@ body {
     text-align: center;
     background-image: url('./images/xmaspic.png');
     background-size: cover; /* Default: covers the screen */
-    background-position: center bottom; /* Centers image on desktop */
+    background-position: center top; /* Centers image on desktop */
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #000000;
