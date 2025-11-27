@@ -2,21 +2,16 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('./images/xmaspic.png'); /* Using the correct .png extension */
-    background-size: cover; /* Ensures the image covers the entire background */
-    
-    /* 🎄 The fix is here: Change 'center' to a percentage or pixel value */
-    background-position: center 30%; /* Shift the image down by positioning it 30% from the top */
-    /* background-position: center bottom; would show the bottom of the image */
-    
-    background-repeat: no-repeat; /* Prevents repeating */
-    background-attachment: fixed; /* Keeps the background fixed during scrolling */
-    color: #000000; /* Optional: change text color for better visibility */
-    position: relative; /* Set body as the positioning context */
+    background-image: url('./images/xmaspic.png');
+    background-size: cover; /* Default: covers the screen */
+    background-position: center center; /* Centers image on desktop */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #000000;
+    position: relative; 
 }
 
 main {
-    /* To allow the .wish-list to be positioned relative to the body */
     position: relative;
     width: 100%;
 }
@@ -86,36 +81,33 @@ header h1 {
 }
 
 .wish-list {
-    /* REMOVED: flex-wrap: wrap; justify-content: center; gap: 15px; */
+    /* --- NEW DESKTOP GRID LAYOUT (2x3) --- */
+    display: flex; /* Enable flexible layout */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    justify-content: center; /* Center the entire block horizontally */
+    gap: 30px; /* Space between cards */
     
-    /* 🔴 NEW POSITIONING RULES 🔴 */
-    position: absolute; 
-    width: 100%;       
-    left: 0; /* Add this to start positioning from the left edge */
-    
-    /* Adjust this value to move the row up or down */
-    top: 300px; /* **Start here (I've changed this from 450px to 300px) and adjust as needed.** */
-    height: 600px; /* **Add a reasonable height to contain all cards** */
+    /* Reset positioning properties */
+    position: static;
+    margin-top: 50px; /* Space below the header */
+    height: auto;
 }
 
 
 /* styles.css */
 .person {
-    /* Set positioning for individual control */
-    position: absolute; 
+    /* Reset from absolute positioning */
+    position: static; 
+    margin: 0;
     
-    /* Reset margins that interfere with absolute positioning */
-    margin: 0; 
-
-    /* 🔴 ADD OR UPDATE THESE SIZE PROPERTIES 🔴 */
-    width: 450px; 
-    height: 600px;
-
+    /* Define card size and allow space for three cards side-by-side */
+    width: 150px; /* Set a fixed width for the card */
+    height: 200px; /* Set a fixed height */
+    
     text-align: center;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
-    /* This adds the base shadow colors to simulate string lights */
     box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
     animation: blink 3.5s infinite;
 }
@@ -182,4 +174,50 @@ header h1 {
 #lilah-card {
     left: 75%;
     top: 1550px; 
+}
+
+/* --- Media Queries for Mobile Responsiveness --- */
+@media (max-width: 767px) { 
+    
+    /* 1. Mobile Background Fix */
+    body {
+        /* Use 'contain' to ensure the entire image is visible, even if it leaves space */
+        /* OR use 'cover' and adjust position to show the important part */
+        background-size: contain; 
+        background-position: center top; /* Focus the top of the image */
+        background-attachment: scroll; /* Allow background to scroll with content on mobile */
+    }
+
+    /* 2. Mobile Header Adjustments */
+    header {
+        width: 95%; /* Make header stretch to fit screen */
+    }
+    
+    header h1 {
+        font-size: 1.8em; 
+    }
+
+    #countdown {
+        font-size: 1.1em;
+    }
+    
+    /* 3. Mobile Card Stacking (6x1 Grid) */
+    .wish-list {
+        flex-direction: column; /* Stack the cards vertically */
+        align-items: center; /* Center the cards */
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .person {
+        /* Make the card responsive by taking up most of the screen width */
+        width: 85%; 
+        max-width: 300px; /* Prevents card from getting too wide on a large phone */
+        height: auto; /* Allow height to adjust based on stacked content */
+    }
+    
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+    }
 }
