@@ -89,7 +89,7 @@ header h1 {
     gap: 30px 40px; /* Top/Bottom gap: 30px, Left/Right gap: 40px */
     
     /* 🔴 OPTIONAL: Set a max width to help define the wrapping point */
-    max-width: 800px; /* Ensure space for 3 cards (200px each) + 2 gaps (40px each) */
+    max-width: 900px; /* Ensure space for 3 cards (200px each) + 2 gaps (40px each) */
     margin: 50px auto 0 auto; /* Center the whole wish list container */
     
     position: static;
@@ -115,20 +115,22 @@ header h1 {
     animation: blink 3.5s infinite;
 }
 
-/* New rules to increase text size */
-.person p { /* This targets the name (e.g., Alexander) */
-    font-size: 1.5em; /* Make the name larger */
+/* New rule to make the name text bigger */
+.person p {
+    font-size: 1.5em; /* Make the name (Alexander, Kaelynne, etc.) larger */
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-.person a { /* This targets the link (View Wishlist) */
+/* New rule to make the View Wishlist link stand out */
+.person a {
     font-size: 1.1em; /* Make the link text larger */
-    padding: 5px 10px; /* Add padding to make the link box bigger */
-    border: 2px solid #006400; /* Add a nice border */
+    padding: 5px 10px; /* Add padding to give it a button feel */
+    border: 2px solid #006400; /* Add a green border */
     border-radius: 5px;
     text-decoration: none;
-    display: inline-block; /* Allows padding and border */
+    display: inline-block; /* Allows padding and border to be applied */
+    margin-top: 5px;
 }
 
 /* Flashing lights animation */
@@ -154,7 +156,10 @@ header h1 {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    object-fit: cover;
+/* 'cover' ensures the circle is filled, which looks best for portraits */
+    object-fit: cover; 
+    /* Add margin to separate the picture from the name/link */
+    margin-bottom: 5px; 
 }
 
 /* --- Media Queries for Mobile Responsiveness --- */
