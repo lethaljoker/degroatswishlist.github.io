@@ -41,12 +41,12 @@ header {
 
 
 header h1 {
-    font-size: 2.5em; /* Large size, but fits better */
+    font-size: 3.5em; /* Large size, but fits better */
     animation: colorChange 3s infinite;
 }
 
 #countdown {
-    font-size: 1.5em; /* Large size, but fits better */
+    font-size: 2.5em; /* Large size, but fits better */
     color: #ff0000;
 }
 
@@ -86,10 +86,10 @@ header h1 {
     justify-content: center;
     
     /* 🔴 ADJUST GAP for better spacing/wrapping */
-    gap: 30px 40px; /* Top/Bottom gap: 30px, Left/Right gap: 40px */
+    gap: 60px 80px; /* Top/Bottom gap: 30px, Left/Right gap: 40px */
     
     /* 🔴 OPTIONAL: Set a max width to help define the wrapping point */
-    max-width: 900px; /* Ensure space for 3 cards (200px each) + 2 gaps (40px each) */
+    max-width: 1700px; /* Ensure space for 3 cards (200px each) + 2 gaps (40px each) */
     margin: 50px auto 0 auto; /* Center the whole wish list container */
     
     position: static;
@@ -104,11 +104,11 @@ header h1 {
     margin: 0;
     
     /* 🔴 NEW SIZE FOR BIGGER DESKTOP BOXES */
-    width: 250px; 
-    height: 300px;
+    width: 500px; 
+    height: 600px;
     
     text-align: center;
-    padding: 10px; /* Reduced padding to help items fit within the height */
+    padding: 20px; /* Reduced padding to help items fit within the height */
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
@@ -117,20 +117,20 @@ header h1 {
 
 /* New rule to make the name text bigger */
 .person p {
-    font-size: 1.5em; /* Make the name (Alexander, Kaelynne, etc.) larger */
-    margin-top: 5px;
-    margin-bottom: 5px;
+    font-size: 3em; /* Make the name (Alexander, Kaelynne, etc.) larger */
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* New rule to make the View Wishlist link stand out */
 .person a {
-    font-size: 1.1em; /* Make the link text larger */
-    padding: 5px 10px; /* Add padding to give it a button feel */
-    border: 2px solid #006400; /* Add a green border */
-    border-radius: 5px;
+    font-size: 2.2em; /* Make the link text larger */
+    padding: 10px 20px; /* Add padding to give it a button feel */
+    border: 4px solid #006400; /* Add a green border */
+    border-radius: 10px;
     text-decoration: none;
     display: inline-block; /* Allows padding and border to be applied */
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 /* Flashing lights animation */
@@ -153,13 +153,13 @@ header h1 {
 }
 
 .profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
 /* 'cover' ensures the circle is filled, which looks best for portraits */
     object-fit: cover; 
     /* Add margin to separate the picture from the name/link */
-    margin-bottom: 5px; 
+    margin-bottom: 10px; 
 }
 
 /* --- Media Queries for Mobile Responsiveness --- */
