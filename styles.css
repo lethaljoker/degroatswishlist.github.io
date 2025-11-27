@@ -30,9 +30,9 @@ main {
 }
 
 header {
-    margin: 5px 0;
-    /* 1. Set the width to fit the content exactly (the #wishlist-header box) */
-    width: max-content; 
+    margin: 5px auto; /* Keep margin auto for centering */
+    width: 90%; /* Make it take 90% of the screen width on smaller screens */
+    max-width: 600px; /* Optional: Prevent it from getting too wide on very large screens */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,31 +42,26 @@ header {
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     animation: colorChange 3s infinite;
-
-    /* 2. Add these two lines to center the header block on the page */
-    margin-left: auto;
-    margin-right: auto;
 }
 
 
 header h1 {
-    font-size: 6.5em;
+    font-size: 5.8em; /* Smaller font size for mobile */
     animation: colorChange 3s infinite;
 }
 
 #countdown {
-    font-size: 6.5em;
+    font-size: 5.8em; /* Smaller font size for mobile */
     color: #ff0000;
 }
 
 #wishlist-header {
     text-align: center;
-    width: auto; /* Set this to auto so it doesn't stretch full width */
-    padding: 80px 160px;
-    margin: 30px;
+    width: 100%; /* Make it take full width of its parent header */
+    padding: 80px 160px; /* Adjust padding for mobile */
+    margin: 10px; /* Adjust margin for mobile */
     background-color: white;
     border-radius: 10px;
-    /* This adds the base shadow colors to simulate string lights */
     box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
     animation: blink 3.5s infinite;
 }
