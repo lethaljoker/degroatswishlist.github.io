@@ -41,13 +41,13 @@ header {
 
 
 header h1 {
-    font-size: 5.8em; /* Smaller font size for mobile */
-    animation: colorChange 3s infinite;
+    font-size: 2.5em; /* Large size, but fits better */
+    animation: colorChange 3s infinite;
 }
 
 #countdown {
-    font-size: 5.8em; /* Smaller font size for mobile */
-    color: #ff0000;
+    font-size: 1.5em; /* Large size, but fits better */
+    color: #ff0000;
 }
 
 #wishlist-header {
@@ -104,8 +104,8 @@ header h1 {
     margin: 0;
     
     /* 🔴 NEW SIZE FOR BIGGER DESKTOP BOXES */
-    width: 200px; 
-    height: 250px;
+    width: 250px; 
+    height: 300px;
     
     text-align: center;
     padding: 10px; /* Reduced padding to help items fit within the height */
@@ -113,6 +113,22 @@ header h1 {
     border-radius: 10px;
     box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
     animation: blink 3.5s infinite;
+}
+
+/* New rules to increase text size */
+.person p { /* This targets the name (e.g., Alexander) */
+    font-size: 1.5em; /* Make the name larger */
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.person a { /* This targets the link (View Wishlist) */
+    font-size: 1.1em; /* Make the link text larger */
+    padding: 5px 10px; /* Add padding to make the link box bigger */
+    border: 2px solid #006400; /* Add a nice border */
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block; /* Allows padding and border */
 }
 
 /* Flashing lights animation */
@@ -135,48 +151,10 @@ header h1 {
 }
 
 .profile-pic {
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
-}
-
-/* --- Individual Card Positioning (Adjust these values) --- */
-
-/* Dustin (Far Left) */
-#dustin-card {
-    left: 15%; 
-    top: 150px; 
-}
-
-/* Kaelynne */
-#kaelynne-card {
-    left: 35%;
-    top: 950px; 
-}
-
-/* Mathew (Center, Lowest) */
-#mathew-card {
-    left: 50%;
-    top: 1200px; 
-}
-
-/* Alexander */
-#alexander-card {
-    left: 60%;
-    top: 550px; 
-}
-
-/* Cura */
-#cura-card {
-    left: 80%;
-    top: 50px; 
-}
-
-/* Lilah (Far Right, Lowest) */
-#lilah-card {
-    left: 75%;
-    top: 1550px; 
 }
 
 /* --- Media Queries for Mobile Responsiveness --- */
