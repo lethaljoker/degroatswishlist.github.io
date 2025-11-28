@@ -12,10 +12,15 @@
 }
 
 .slider-wrapper {
-    display: flex; /* Makes slides sit side-by-side */
-    transition: transform 0.5s ease-in-out; /* Smooth slide animation */
-    width: 100%;
-    justify-content: center; /* Center the current slide */
+    display: flex; /* Keeps all slides side-by-side */
+    transition: transform 0.5s ease-in-out; 
+    
+    /* 🔴 CRITICAL FIX: The wrapper must be wide enough to hold all cards side-by-side */
+    width: 100%; /* Keep this for the container's width */
+    height: 100%;
+    
+    /* ❌ Remove justify-content if it's there; it can interfere with centering the visible slide */
+    /* Remove any width constraints that might be forcing vertical stacking */
 }
 
 .slider-item {
