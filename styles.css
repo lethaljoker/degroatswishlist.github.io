@@ -54,11 +54,8 @@
 .person {
     /* 🔴 CRITICAL: This forces the item to stay on one line and take 100% of the viewport width */
     flex: 0 0 100%; 
-    
-    /* Reset old card dimensions that conflict with 100% width */
-    width: auto; 
-    height: auto; 
-    
+    position: static;
+    margin: 0;
     /* Add desired internal card styling back */
     text-align: center;
     padding: 20px;
@@ -67,24 +64,6 @@
     box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
     animation: blink 3.5s infinite;
 }
-
-/* Add Slider Button Styles */
-.slider-btn {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    font-size: 2em;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    border-radius: 5px;
-    outline: none;
-}
-#prevBtn { left: 10px; }
-#nextBtn { right: 10px; }
 
 .profile-pic {
     width: 300px;
