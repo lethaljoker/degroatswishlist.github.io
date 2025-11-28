@@ -52,11 +52,16 @@
 
 /* Update .person (The Individual Slide) */
 .person {
-    /* 🔴 CRITICAL: This forces the item to stay on one line and take 100% of the viewport width */
+    /* 🔴 CRITICAL: The flex rule dictates width, not fixed pixels */
     flex: 0 0 100%; 
+    
     position: static;
     margin: 0;
-    /* Add desired internal card styling back */
+    
+    /* Ensure the browser calculates the size based on contents */
+    width: auto; 
+    height: auto; 
+    
     text-align: center;
     padding: 20px;
     background-color: white;
