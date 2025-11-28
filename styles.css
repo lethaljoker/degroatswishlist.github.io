@@ -32,29 +32,6 @@ header {
     height: auto;
 }
 
-.slider-btn {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    font-size: 2em;
-    cursor: pointer;
-    position: absolute; /* Position buttons relative to .slider-container */
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10; /* Ensure buttons are above the slides */
-    border-radius: 5px;
-    outline: none;
-}
-
-#prevBtn {
-    left: 10px;
-}
-
-#nextBtn {
-    right: 10px;
-}
-
 
 /* Update .person (The Grid Cell) */
 .person {
