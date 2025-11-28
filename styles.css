@@ -1,35 +1,34 @@
 /* --- NEW SLIDER BASE STYLES --- */
-.slider-container {
-    position: relative; 
+.fs-slider_instance {
+    position: relative;
+    /* Keeps the navigation buttons positioned correctly */
     
-    /* 🔴 CRITICAL: Defines the visible width of ONE slide + buttons */
-    max-width: 600px; /* Adjust this to match the width of ONE card + padding */
+    /* Good for centering on the page and controlling overall size: */
     width: 90%; 
-    
+    max-width: 600px; /* Adjust this to control the final visible width */
     margin: 50px auto; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
     
-    /* 🔴 CRITICAL: This hides all slides except the one in view */
+    /* CRITICAL FIX: This hides slides that are off-screen */
     overflow: hidden; 
     
-    padding: 20px;
+    /* Remove flex-flow: column; if you want the buttons outside the main track */
+    /* If you keep flex-flow: column, you'll need to reposition your buttons */
 }
 
 .slider-wrapper {
-    /* 🔴 CRITICAL: Puts all children (slides) on one line */
     display: flex; 
-    transition: transform 0.5s ease-in-out; 
+    /* CRITICAL: Puts all slides on one horizontal line */
     
+    transition: transform 0.5s ease-in-out; 
+    /* Allows for the smooth slide animation */
+    
+    width: 100%;
     /* Ensure the track is wide enough */
-    width: 100%; 
-    height: 100%;
 }
 
-.slider-item {
-    /* CRITICAL: Forces item to stay on one line and take 100% of the viewport width */
+.slider-item { /* Your .person cards also have this class */
     flex: 0 0 100%; 
+    /* CRITICAL: Forces item to stay on one line and take 100% of the viewport width */
     
     box-sizing: border-box; 
     padding: 0 10px; 
