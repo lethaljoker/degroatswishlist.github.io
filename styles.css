@@ -1,48 +1,39 @@
 /* --- NEW SLIDER BASE STYLES --- */
 .slider-container {
-    position: relative;
+    position: relative; 
     
-    /* 🔴 CRITICAL FIX 1: Max width defines the visible width of one slide */
-    max-width: 600px; /* Adjust this to match the width of ONE person card + padding */
+    /* 🔴 CRITICAL: Defines the visible width of ONE slide + buttons */
+    max-width: 600px; /* Adjust this to match the width of ONE card + padding */
     width: 90%; 
     
-    margin: 50px auto;
+    margin: 50px auto; 
     display: flex;
     align-items: center;
     justify-content: center;
     
-    /* 🔴 CRITICAL FIX 2: Hides all slides not currently visible */
+    /* 🔴 CRITICAL: This hides all slides except the one in view */
     overflow: hidden; 
     
     padding: 20px;
 }
 
 .slider-wrapper {
-    display: flex; /* Keeps all slides side-by-side */
+    /* 🔴 CRITICAL: Puts all children (slides) on one line */
+    display: flex; 
     transition: transform 0.5s ease-in-out; 
     
-    /* 🔴 CRITICAL FIX: The wrapper must be wide enough to hold all cards side-by-side */
-    width: 100%; /* Keep this for the container's width */
+    /* Ensure the track is wide enough */
+    width: 100%; 
     height: 100%;
-    
-    /* ❌ Remove justify-content if it's there; it can interfere with centering the visible slide */
-    /* Remove any width constraints that might be forcing vertical stacking */
 }
 
 .slider-item {
-    /* Each person card is now a slider item */
-    
-    /* 🔴 CRITICAL FIX: This forces the item to stay on one line and take 100% of the visible space */
+    /* CRITICAL: Forces item to stay on one line and take 100% of the viewport width */
     flex: 0 0 100%; 
     
-    /* Ensure card width calculation includes padding/border */
     box-sizing: border-box; 
     padding: 0 10px; 
     text-align: center;
-    
-    /* Ensure the large card dimensions are contained */
-    /* If you kept the 500px width from before, it must be contained by the 100% flex item */
-    /* Let the .person rule define the inner width, but the flex item defines the slide width */
 }
 
 .slider-btn {
@@ -69,18 +60,14 @@
 }
 
 
-/* --- Existing .person and .profile-pic (Adjusted for slider) --- */
+/* Ensure your .person card styling is nested/applied correctly */
 .person {
-    /* These styles apply to each slide (your person card) */
-    position: static; /* Ensure it's not absolutely positioned */
-    margin: 0 auto; /* Center the card within its slide space */
-    width: 500px; /* This is the actual width of your card */
+    /* Ensure no margins interfere with the slide's 100% width */
+    margin: 0 auto; 
+    /* The large width should be defined here, but the 100% on .slider-item will constrain it */
+    width: 500px; 
     height: 600px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
-    animation: blink 3.5s infinite;
+    /* ... rest of your person card styles ... */
 }
 
 .profile-pic {
