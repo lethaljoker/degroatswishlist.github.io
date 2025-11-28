@@ -1,3 +1,40 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    /* Ensure you include your background rules here */
+    background-image: url('./images/xmaspic.png');
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #000000;
+    position: relative; 
+}
+
+/* Add the main element styling back */
+main {
+    position: relative;
+    width: 100%;
+}
+
+/* Restore color change animation */
+@keyframes colorChange {
+    0% { color: #ff0000; }    /* Red */
+    33% { color: #006400; }  /* Green */
+    66% { color: #ffd700; }  /* Gold */
+    100% { color: #ff0000; } /* Back to Red */
+}
+
+/* Restore blink animation (necessary for the box-shadow animation) */
+@keyframes blink {
+    0% { box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue; }
+    25% { box-shadow: 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red; }
+    50% { box-shadow: 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow; }
+    75% { box-shadow: 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green; }
+    100% { box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue; }
+}
+
 header {
     /* Set width for desktop, center using margin: auto */
     margin: 5px auto; 
@@ -17,7 +54,17 @@ header {
     animation: colorChange 3s infinite;
 }
 
-/* Update .wish-list to be the moving track */
+/* Ensure header h1 and #countdown are included */
+header h1 { font-size: 4em; animation: colorChange 3s infinite; }
+#countdown { font-size: 4em; color: #ff0000; }
+#wishlist-header { 
+    text-align: center; width: 100%; 
+    padding: 30px 60px; margin: 10px; 
+    background-color: white; border-radius: 10px; 
+    box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue; 
+    animation: blink 3.5s infinite;
+}
+
 .wish-list {
     display: flex;
     flex-wrap: wrap; 
@@ -36,11 +83,10 @@ header {
 /* Update .person (The Grid Cell) */
 .person {
     /* Set fixed size for the grid cell */
-    width: 300px;  /* Reduced from 500px, but still large */
-    height: 450px; /* Adjust height to match content */
+    width: 300px;  
+    height: 450px; 
 
     /* Remove slider-specific rules */
-    /* ❌ DELETE: flex: 0 0 100%; */
     position: static;
     margin: 0; 
     
@@ -53,7 +99,6 @@ header {
 }
 
 .profile-pic {
-    /* Restore previous large size */
     width: 250px; 
     height: 250px; 
     border-radius: 50%;
@@ -62,14 +107,12 @@ header {
 }
 
 .person p { 
-    /* Reduced from 3em to 2em */
     font-size: 2em; 
     margin-top: 10px; 
     margin-bottom: 10px; 
 }
 
 .person a { 
-    /* Reduced from 2.2em to 1.5em */
     font-size: 1.5em; 
     padding: 10px 20px; 
     border: 4px solid #006400; 
@@ -78,7 +121,7 @@ header {
     margin-top: 10px; 
 }
 
-/* --- Media Queries for Mobile Responsiveness (Adjusted for slider) --- */
+/* --- Media Queries for Mobile Responsiveness --- */
 @media (max-width: 767px) {
     /* ... existing background, header, countdown rules ... */
     
@@ -97,20 +140,19 @@ header {
         height: auto; 
         max-width: 300px;
         padding: 15px;
-        /* Ensure no fixed height remains */
     }
     
     .profile-pic {
-        width: 150px; /* Adjust mobile picture size */
+        width: 150px; 
         height: 150px;
     }
 
     .person p {
-        font-size: 1.8em; /* Adjust mobile name font size */
+        font-size: 1.8em; 
     }
 
     .person a {
-        font-size: 1em; /* Adjust mobile link font size */
+        font-size: 1em; 
         padding: 8px 15px;
         border: 2px solid #006400;
     }
