@@ -65,18 +65,18 @@ header h1 { font-size: 4em; animation: colorChange 3s infinite; }
     animation: blink 3.5s infinite;
 }
 
-.wish-list {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
+#wishlist-header {
+    text-align: center;
+    width: 100%; 
     
-    gap: 60px 80px; 
-    max-width: 1700px; 
-    margin: 50px auto 0 auto;
+    /* 🔴 REDUCED PADDING: Adjusted to work better with the large font size */
+    padding: 30px 60px; 
     
-    /* Ensure no slider properties remain */
-    position: static;
-    height: auto;
+    margin: 10px; 
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
+    animation: blink 3.5s infinite;
 }
 
 
