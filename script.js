@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // --- 2. New Slider Logic ---
 document.addEventListener('DOMContentLoaded', () => {
-    const sliderWrapper = document.querySelector('.slider-wrapper');
+    const sliderWrapper = document.querySelector('.wish-list');
     const sliderItems = document.querySelectorAll('.slider-item');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
