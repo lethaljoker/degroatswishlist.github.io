@@ -1,76 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas Wish List</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
-    <header>
-        <div id="wishlist-header">
-            <h1>Christmas Wish List</h1>
-        </div>
-        <div id="countdown"></div>
-    </header>
-    
 <main>
-    <div class="wish-list">
-        
-        <div class="person" id="alexander-card">
-            <a href="https://www.amazon.com/hz/wishlist/ls/2ED58EZS7OCKC?ref_=wl_share&fbclid=IwY2xjawGHSBFleHRuA2FlbQIxMAABHXwbqgpcsUdDmVLulsCyJlo-fZm1OrjG8R_al7rFzugbe-3Rx46a4xCiMA_aem_NjQzkzCDpl7CPaMwqT5gUg" target="_blank">
-                <img src="images/Alex25.jpg" alt="Alexander" class="profile-pic">
-            </a>    
-            <p>Alexander</p>
-            <a href="https://www.amazon.com/hz/wishlist/ls/2ED58EZS7OCKC?ref_=wl_share&fbclid=IwY2xjawGHSBFleHRuA2FlbQIxMAABHXwbqgpcsUdDmVLulsCyJlo-fZm1OrjG8R_al7rFzugbe-3Rx46a4xCiMA_aem_NjQzkzCDpl7CPaMwqT5gUg" target="_blank">View Wishlist</a>
-        </div>
-        
-        <div class="person" id="kaelynne-card">
-            <a href="https://www.amazon.com/hz/wishlist/ls/4AJNA9XIZX61?ref_=wl_share&fbclid=IwY2xjawGHSPlleHRuA2FlbQIxMAABHWxWZ_ud3RFV-oOQIDBLNUaaX2GXJEOBQyffLip7dUHqXzyzbjYcRchONQ_aem_lti78SqfOwEVkZMcW-xx8g" target="_blank">
-                <img src="images/Kae25.jpg" alt="Kaelynne" class="profile-pic">
-            </a>
-            <p>Kaelynne</p>
-            <a href="https://www.amazon.com/hz/wishlist/ls/4AJNA9XIZX61?ref_=wl_share&fbclid=IwY2xjawGHSPlleHRuA2FlbQIxMAABHWxWZ_ud3RFV-oOQIDBLNUaaX2GXJEOBQyffLip7dUHqXzyzbjYcRchONQ_aem_lti78SqfOwEVkZMcW-xx8g" target="_blank">View Wishlist</a>
-        </div>
-        
-        <div class="person" id="mathew-card">
-            <a href="https://www.amazon.com/hz/wishlist/ls/1QCEO70LDGI6A?ref_=wl_share&fbclid=IwY2xjawGHZBpleHRuA2FlbQIxMAABHd96JdGCpal7HbWR0ElNrEteyw-Sp7eqVz9X3DsQIRa3iBzpaXDnvBThsw_aem_z1NExB_PqUCmvl7seKMZ_A" target="_blank">
-                <img src="images/Mathew25.jpg" alt="Mathew" class="profile-pic">
-            </a>
-            <p>Mathew</p>
-            <a href="https://www.amazon.com/hz/wishlist/ls/1QCEO70LDGI6A?ref_=wl_share&fbclid=IwY2xjawGHZBpleHRuA2FlbQIxMAABHd96JdGCpal7HbWR0ElNrEteyw-Sp7eqVz9X3DsQIRa3iBzpaXDnvBThsw_aem_z1NExB_PqUCmvl7seKMZ_A" target="_blank">View Wishlist</a>
-        </div>
-        
-        <div class="person" id="lilah-card">
-            <a href="https://www.amazon.com/hz/wishlist/ls/2RC1EZS3NDB1M?ref_=wl_share&fbclid=IwY2xjawGHZChleHRuA2FlbQIxMAABHWxWZ_ud3RFV-oOQIDBLNUaaX2GXJEOBQyffLip7dUHqXzyzbjYcRchONQ_aem_lti78SqfOwEVkZMcW-xx8g" target="_blank">
-                <img src="images/lilah25.jpg" alt="Lilah" class="profile-pic">
-            </a>
-            <p>Lilah</p>
-            <a href="https://www.amazon.com/hz/wishlist/ls/2RC1EZS3NDB1M?ref_=wl_share&fbclid=IwY2xjawGHZChleHRuA2FlbQIxMAABHWxWZ_ud3RFV-oOQIDBLNUaaX2GXJEOBQyffLip7dUHqXzyzbjYcRchONQ_aem_lti78SqfOwEVkZMcW-xx8g" target="_blank">View Wishlist</a>
-        </div>
-        
-        <div class="person" id="dustin-card">
-            <a href="https://www.amazon.com/hz/wishlist/ls/T24B644746MR?ref_=wl_share" target="_blank">
-                <img src="images/DNC2.jpg" alt="Dustin" class="profile-pic">
-            </a>
-            <p>Dustin</p>
-            <a href="https://www.amazon.com/hz/wishlist/ls/T24B644746MR?ref_=wl_share" target="_blank">View Wishlist</a>
-        </div>
-        
-        <div class="person" id="cura-card">
-            <a href="https://www.amazon.com/hz/wishlist/ls/P9PDQUYSDZSH?ref_=wl_share&fbclid=IwY2xjawGHY_lleHRuA2FlbQIxMAABHdpKxM6PwziaUxGTDXVIKCmaL7JmqveN4p8alyaxFOGVUCCzqvW1bWouZw_aem_z89IFI7j3rMSv9UjgUkOVw" target="_blank">
-                <img src="images/DNC2.jpg" alt="Cura" class="profile-pic">
-            </a>
-            <p>Cura</p>
-            <a href="https://www.amazon.com/hz/wishlist/ls/P9PDQUYSDZSH?ref_=wl_share&fbclid=IwY2xjawGHY_lleHRuA2FlbQIxMAABHdpKxM6PwziaUxGTDXVIKCmaL7JmqveN4p8alyaxFOGVUCCzqvW1bWouZw_aem_z89IFI7j3rMSv9UjgUkOVw" target="_blank">View Wishlist</a>
-        </div>
-        
-        <div class="card">
-            <div class="card-info">
-                
+    <div class="slider-container">
+        <button id="prevBtn" class="slider-btn">&lt;</button>
+        <div class="slider-wrapper">
+            <div class="person slider-item" id="alexander-card">
+                <a href="https://www.amazon.com/hz/wishlist/ls/2ED58EZS7OCKC?ref_=wl_share&fbclid=IwY2xjawGHSBFleHRuA2FlbQIxMAABHXwbqgpcsUdDmVLulsCyJlo-fZm1OrjG8R_al7rFzugbe-3Rx46a4xCiMA_aem_NjQzkzCDpl7CPaMwqT5gUg" target="_blank">
+                    <img src="images/Alex25.jpg" alt="Alexander" class="profile-pic">
+                </a>    
+                <p>Alexander</p>
+                <a href="https://www.amazon.com/hz/wishlist/ls/2ED58EZS7OCKC?ref_=wl_share&fbclid=IwY2xjawGHSBFleHRuA2FlbQIxMAABHXwbqgpcsUdDmVLulsCyJlo-fZm1OrjG8R_al7rFzugbe-3Rx46a4xCiMA_aem_NjQzkzCDpl7CPaMwqT5gUg" target="_blank">View Wishlist</a>
+            </div>
+            
+            <div class="person slider-item" id="kaelynne-card">
+                <a href="https://www.amazon.com/hz/wishlist/ls/4AJNA9XIZX61?ref_=wl_share&fbclid=IwY2xjawGHSPlleHRuA2FlbQIxMAABHWxWZ_ud3RFV-oOQIDBLNUaaX2GXJEOBQyffLip7dUHqXzyzbjYcRchONQ_aem_lti78SqfOwEVkZMcW-xx8g" target="_blank">
+                    <img src="images/Kae25.jpg" alt="Kaelynne" class="profile-pic">
+                </a>
+                <p>Kaelynne</p>
+                <a href="https://www.amazon.com/hz/wishlist/ls/4AJNA9XIZX61?ref_=wl_share&fbclid=IwY2xjawGHSPlleHRuA2FlbQIxMAABHWxWZ_ud3RFV-oOQIDBLNUaaX2GXJEOBQyffLip7dUHqXzyzbjYcRchONQ_aem_lti78SqfOwEVkZMcW-xx8g" target="_blank">View Wishlist</a>
+            </div>
+            
+            <div class="person slider-item" id="mathew-card">
+                <a href="https://www.amazon.com/hz/wishlist/ls/1QCEO70LDGI6A?ref_=wl_share&fbclid=IwY2xjawGHZBpleHRuA2FlbQIxMAABHd96JdGCpal7HbWR0ElNrEteyw-Sp7eqVz9X3DsQIRa3iBzpaXDnvBThsw_aem_z1NExB_PqUCmvl7seKMZ_A" target="_blank">
+                    <img src="images/Mathew25.jpg" alt="Mathew" class="profile-pic">
+                </a>
+                <p>Mathew</p>
+                <a href="https://www.amazon.com/hz/wishlist/ls/1QCEO70LDGI6A?ref_=wl_share&fbclid=IwY2xjawGHZBpleHRuA2FlbQIxMAABHd96JdGCpal7HbWR0ElNrEteyw-Sp7eqVz9X3DsQIRa3iBzpaXDnvBThsw_aem_z1NExB_PqUCmvl7seKMZ_A" target="_blank">View Wishlist</a>
+            </div>
+            
+            <div class="person slider-item" id="lilah-card">
+                <a href="https://www.amazon.com/hz/wishlist/ls/2RC1EZS3NDB1M?ref_=wl_share&fbclid=IwY2xjawGHZChleHRuA2FlbQIxMAABHWxWZ_ud3RFV-oOQIDBLNUaaX2GXJEOBQyffLip7dUHqXzyzbjYcRchONQ_aem_lti78SqfOwEVkZMcW-xx8g" target="_blank">
+                    <img src="images/lilah25.jpg" alt="Lilah" class="profile-pic">
+                </a>
+                <p>Lilah</p>
+                <a href="https://www.amazon.com/hz/wishlist/ls/2RC1EZS3NDB1M?ref_=wl_share&fbclid=IwY2xjawGHZChleHRuA2FlbQIxMAABHWxWZ_ud3RFV-oOQIDBLNUaaX2GXJEOBQyffLip7dUHqXzyzbjYcRchONQ_aem_lti78SqfOwEVkZMcW-xx8g" target="_blank">View Wishlist</a>
+            </div>
+            
+            <div class="person slider-item" id="dustin-card">
+                <a href="https://www.amazon.com/hz/wishlist/ls/T24B644746MR?ref_=wl_share" target="_blank">
+                    <img src="images/DNC2.jpg" alt="Dustin" class="profile-pic">
+                </a>
+                <p>Dustin</p>
+                <a href="https://www.amazon.com/hz/wishlist/ls/T24B644746MR?ref_=wl_share" target="_blank">View Wishlist</a>
+            </div>
+            
+            <div class="person slider-item" id="cura-card">
+                <a href="https://www.amazon.com/hz/wishlist/ls/P9PDQUYSDZSH?ref_=wl_share&fbclid=IwY2xjawGHY_lleHRuA2FlbQIxMAABHdpKxM6PwziaUxGTDXVIKCmaL7JmqveN4p8alyaxFOGVUCCzqvW1bWouZw_aem_z89IFI7j3rMSv9UjgUkOVw" target="_blank">
+                    <img src="images/DNC2.jpg" alt="Cura" class="profile-pic">
+                </a>
+                <p>Cura</p>
+                <a href="https://www.amazon.com/hz/wishlist/ls/P9PDQUYSDZSH?ref_=wl_share&fbclid=IwY2xjawGHY_lleHRuA2FlbQIxMAABHdpKxM6PwziaUxGTDXVIKCmaL7JmqveN4p8alyaxFOGVUCCzqvW1bWouZw_aem_z89IFI7j3rMSv9UjgUkOVw" target="_blank">View Wishlist</a>
             </div>
         </div>
-        
+        <button id="nextBtn" class="slider-btn">&gt;</button>
     </div>
 </main>
