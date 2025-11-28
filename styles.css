@@ -1,15 +1,35 @@
+header {
+    /* Set width for desktop, center using margin: auto */
+    margin: 5px auto; 
+    width: 90%; 
+    max-width: 1000px; /* Gives enough room for the large text */
+    
+    /* RESTORE SIMPLE STACKING */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    
+    padding: 5px;
+    border: 32px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: colorChange 3s infinite;
+}
+
 /* Update .wish-list to be the moving track */
 .wish-list {
-    /* 🔴 CRITICAL: Puts all children (slides) on one horizontal line */
-    display: flex; 
-    flex-wrap: nowrap; /* Prevent wrapping to a new line */
-    transition: transform 0.5s ease-in-out; 
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
     
-    /* Reset old positioning styles */
-    max-width: none; 
-    margin: 0; 
-    gap: 0; /* Remove gap between slides to simplify calculation */
+    gap: 60px 80px; 
+    max-width: 1700px; 
+    margin: 50px auto 0 auto;
+    
+    /* Ensure no slider properties remain */
+    position: static;
+    height: auto;
 }
 
 .slider-btn {
