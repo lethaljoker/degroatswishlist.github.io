@@ -1,209 +1,148 @@
-/* styles.css */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-image: url('./images/xmaspic.png');
-    background-size: cover; /* Default: covers the screen */
-    background-position: center top; /* Centers image on desktop */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #000000;
-    position: relative; 
-}
-
-main {
-    position: relative;
+/* --- NEW SLIDER BASE STYLES --- */
+.slider-container {
+    position: relative; /* Allows positioning of buttons inside */
     width: 100%;
-}
-
-/* styles.css */
-@keyframes colorChange {
-    0% { color: #ff0000; }   /* Red */
-    33% { color: #006400; }  /* Green */
-    66% { color: #ffd700; }  /* Gold */
-    100% { color: #ff0000; } /* Back to Red */
-}
-
-header {
-    margin: 5px auto; /* Keep margin auto for centering */
-    width: 90%; /* Make it take 90% of the screen width on smaller screens */
-    max-width: 600px; /* Optional: Prevent it from getting too wide on very large screens */
+    max-width: 600px; /* Adjust this to control the overall width of the slider area */
+    margin: 50px auto; /* Centers the slider container */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px;
-    border: 32px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: colorChange 3s infinite;
+    align-items: center; /* Vertically center buttons with slides */
+    justify-content: center; /* Initially center the slide content */
+    overflow: hidden; /* CRITICAL: Hides slides that are off-screen */
+    padding: 20px; /* Add some space around the slider */
 }
 
-
-header h1 {
-    font-size: 4em; /* Large size, but fits better */
-    animation: colorChange 3s infinite;
+.slider-wrapper {
+    display: flex; /* Makes slides sit side-by-side */
+    transition: transform 0.5s ease-in-out; /* Smooth slide animation */
+    width: 100%;
+    justify-content: center; /* Center the current slide */
 }
 
-#countdown {
-    font-size: 4em; /* Large size, but fits better */
-    color: #ff0000;
-}
-
-#wishlist-header {
+.slider-item {
+    /* Each person card is now a slider item */
+    flex: 0 0 100%; /* CRITICAL: Each slide takes 100% of the wrapper width */
+    max-width: 500px; /* Ensure card width doesn't exceed its max-width */
+    box-sizing: border-box; /* Include padding/border in width calculation */
+    padding: 0 10px; /* Add some horizontal padding to separate slides */
     text-align: center;
-    width: 100%; /* Make it take full width of its parent header */
-    padding: 30px 60px; /* Adjust padding for mobile */
-    margin: 10px; /* Adjust margin for mobile */
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
-    animation: blink 3.5s infinite;
 }
 
-/* Flashing lights animation */
-@keyframes blink {
-    0% {
-        box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
-    }
-    25% {
-        box-shadow: 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red;
-    }
-    50% {
-        box-shadow: 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow;
-    }
-    75% {
-        box-shadow: 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green;
-    }
-    100% {
-        box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
-    }
+.slider-btn {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute; /* Position buttons relative to .slider-container */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure buttons are above the slides */
+    border-radius: 5px;
+    outline: none;
 }
 
-.wish-list {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    
-    /* 🔴 ADJUST GAP for better spacing/wrapping */
-    gap: 60px 80px; /* Top/Bottom gap: 30px, Left/Right gap: 40px */
-    
-    /* 🔴 OPTIONAL: Set a max width to help define the wrapping point */
-    max-width: 1700px; /* Ensure space for 3 cards (200px each) + 2 gaps (40px each) */
-    margin: 50px auto 0 auto; /* Center the whole wish list container */
-    
-    position: static;
-    height: auto;
+#prevBtn {
+    left: 10px;
+}
+
+#nextBtn {
+    right: 10px;
 }
 
 
-/* styles.css */
+/* --- Existing .person and .profile-pic (Adjusted for slider) --- */
 .person {
-    /* Reset from absolute positioning */
-    position: static; 
-    margin: 0;
-    
-    /* 🔴 NEW SIZE FOR BIGGER DESKTOP BOXES */
-    width: 500px; 
+    /* These styles apply to each slide (your person card) */
+    position: static; /* Ensure it's not absolutely positioned */
+    margin: 0 auto; /* Center the card within its slide space */
+    width: 500px; /* This is the actual width of your card */
     height: 600px;
-    
-    text-align: center;
-    padding: 20px; /* Reduced padding to help items fit within the height */
+    padding: 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
     animation: blink 3.5s infinite;
-}
-
-/* New rule to make the name text bigger */
-.person p {
-    font-size: 4em; /* Make the name (Alexander, Kaelynne, etc.) larger */
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-/* New rule to make the View Wishlist link stand out */
-.person a {
-    font-size: 2.2em; /* Make the link text larger */
-    padding: 10px 20px; /* Add padding to give it a button feel */
-    border: 4px solid #006400; /* Add a green border */
-    border-radius: 10px;
-    text-decoration: none;
-    display: inline-block; /* Allows padding and border to be applied */
-    margin-top: 10px;
-}
-
-/* Flashing lights animation */
-@keyframes blink {
-    0% {
-        box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
-    }
-    25% {
-        box-shadow: 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red;
-    }
-    50% {
-        box-shadow: 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow;
-    }
-    75% {
-        box-shadow: 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green;
-    }
-    100% {
-        box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
-    }
 }
 
 .profile-pic {
     width: 300px;
-    height: 300px;
+    height: 300px; 
     border-radius: 50%;
-/* 'cover' ensures the circle is filled, which looks best for portraits */
     object-fit: cover; 
-    /* Add margin to separate the picture from the name/link */
     margin-bottom: 10px; 
 }
 
-/* --- Media Queries for Mobile Responsiveness --- */
-@media (max-width: 767px) { 
-    
-    /* 1. Mobile Background Fix */
+.person p { 
+    font-size: 3em; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+}
+
+.person a { 
+    font-size: 2.2em; 
+    padding: 10px 20px; 
+    border: 4px solid #006400; 
+    border-radius: 10px; 
+    text-decoration: none;
+    display: inline-block; 
+    margin-top: 10px; 
+}
+
+/* --- Media Queries for Mobile Responsiveness (Adjusted for slider) --- */
+@media (max-width: 767px) { 
     body {
-        /* Use 'contain' to ensure the entire image is visible, even if it leaves space */
-        /* OR use 'cover' and adjust position to show the important part */
-        background-size: contain; 
-        background-position: center center; /* Focus the top of the image */
-        background-attachment: scroll; /* Allow background to scroll with content on mobile */
+        background-size: contain; 
+        background-position: center center; 
+        background-attachment: scroll; 
     }
 
-    /* 2. Mobile Header Adjustments */
     header {
-        width: 95%; /* Make header stretch to fit screen */
+        width: 95%; 
+        max-width: none; /* Remove max-width on mobile */
     }
     
     header h1 {
-        font-size: 1.8em; 
+        font-size: 2.5em; /* Smaller on mobile */
     }
 
     #countdown {
-        font-size: 1.1em;
+        font-size: 1.5em; /* Smaller on mobile */
+    }
+
+    #wishlist-header {
+        padding: 15px 10px; /* Smaller padding for mobile header */
     }
     
-    /* 3. Mobile Card Stacking (6x1 Grid) */
-    .wish-list {
-        flex-direction: column; /* Stack the cards vertically */
-        align-items: center; /* Center the cards */
-        gap: 20px;
-        margin-top: 20px;
+    .slider-container {
+        max-width: 95%; /* Make slider take most of the screen width */
+        padding: 10px 0;
+    }
+
+    .slider-btn {
+        padding: 10px 15px; /* Smaller buttons */
+        font-size: 1.5em;
     }
 
     .person {
-        /* Make the card responsive by taking up most of the screen width */
-        width: 85%; 
-        max-width: 300px; /* Prevents card from getting too wide on a large phone */
-        height: auto; /* Allow height to adjust based on stacked content */
+        width: 90%; /* Person card width on mobile */
+        max-width: none; /* Remove max-width on mobile */
+        height: auto; /* Allow height to adjust */
+        padding: 15px;
     }
     
     .profile-pic {
-        width: 80px;
-        height: 80px;
+        width: 150px; /* Adjust mobile picture size */
+        height: 150px;
+    }
+
+    .person p {
+        font-size: 1.8em; /* Adjust mobile name font size */
+    }
+
+    .person a {
+        font-size: 1em; /* Adjust mobile link font size */
+        padding: 8px 15px;
+        border: 2px solid #006400;
     }
 }
