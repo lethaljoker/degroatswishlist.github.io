@@ -41,19 +41,19 @@ header {
 
 
 header h1 {
-    font-size: 25.5em; /* Large size, but fits better */
+    font-size: 4em; /* Large size, but fits better */
     animation: colorChange 3s infinite;
 }
 
 #countdown {
-    font-size: 25.5em; /* Large size, but fits better */
+    font-size: 3em; /* Large size, but fits better */
     color: #ff0000;
 }
 
 #wishlist-header {
     text-align: center;
     width: 100%; /* Make it take full width of its parent header */
-    padding: 160px 320px; /* Adjust padding for mobile */
+    padding: 30px 60px; /* Adjust padding for mobile */
     margin: 10px; /* Adjust margin for mobile */
     background-color: white;
     border-radius: 10px;
