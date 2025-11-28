@@ -2,7 +2,6 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    /* Ensure you include your background rules here */
     background-image: url('./images/xmaspic.png');
     background-size: cover; 
     background-position: center center; 
@@ -12,21 +11,18 @@ body {
     position: relative; 
 }
 
-/* Add the main element styling back */
 main {
     position: relative;
     width: 100%;
 }
 
-/* Restore color change animation */
 @keyframes colorChange {
-    0% { color: #ff0000; }    /* Red */
-    33% { color: #006400; }  /* Green */
-    66% { color: #ffd700; }  /* Gold */
-    100% { color: #ff0000; } /* Back to Red */
+    0% { color: #ff0000; }
+    33% { color: #006400; }
+    66% { color: #ffd700; }
+    100% { color: #ff0000; }
 }
 
-/* Restore blink animation (necessary for the box-shadow animation) */
 @keyframes blink {
     0% { box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue; }
     25% { box-shadow: 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red; }
@@ -36,16 +32,12 @@ main {
 }
 
 header {
-    /* Set width for desktop, center using margin: auto */
     margin: 5px auto; 
     width: 90%; 
-    max-width: 1000px; /* Gives enough room for the large text */
-    
-    /* RESTORE SIMPLE STACKING */
+    max-width: 1000px; 
     display: flex;
     flex-direction: column;
     align-items: center; 
-    
     padding: 5px;
     border: 32px solid #ccc;
     border-radius: 10px;
@@ -54,7 +46,6 @@ header {
     animation: colorChange 3s infinite;
 }
 
-/* Ensure header h1 and #countdown are included */
 header h1 { font-size: 4em; animation: colorChange 3s infinite; }
 #countdown { font-size: 4em; color: #ff0000; }
 #wishlist-header { 
@@ -65,28 +56,23 @@ header h1 { font-size: 4em; animation: colorChange 3s infinite; }
     animation: blink 3.5s infinite;
 }
 
-#wishlist-header {
-    text-align: center;
-    width: 100%; 
+.wish-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
     
-    /* 🔴 REDUCED PADDING: Adjusted to work better with the large font size */
-    padding: 30px 60px; 
+    gap: 60px 80px; 
+    max-width: 1700px; 
+    margin: 50px auto 0 auto;
     
-    margin: 10px; 
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
-    animation: blink 3.5s infinite;
+    position: static;
+    height: auto;
 }
 
-
-/* Update .person (The Grid Cell) */
 .person {
-    /* Set fixed size for the grid cell */
     width: 300px;  
     height: 450px; 
 
-    /* Remove slider-specific rules */
     position: static;
     margin: 0; 
     
@@ -122,11 +108,19 @@ header h1 { font-size: 4em; animation: colorChange 3s infinite; }
 }
 
 /* --- Media Queries for Mobile Responsiveness --- */
-@media (max-width: 767px) {
-    /* ... existing background, header, countdown rules ... */
+@media (max-width: 767px) { 
+    body {
+        background-size: contain; 
+        background-position: center center; 
+        background-attachment: scroll; 
+    }
+    
+    header { width: 95%; max-width: none; }
+    header h1 { font-size: 2.5em; }
+    #countdown { font-size: 1.5em; }
+    #wishlist-header { padding: 15px 10px; }
     
     .wish-list {
-        /* Restore stacked layout for mobile */
         flex-direction: column; 
         align-items: center; 
         gap: 20px;
@@ -135,25 +129,13 @@ header h1 { font-size: 4em; animation: colorChange 3s infinite; }
     }
     
     .person {
-        /* Restore mobile sizing */
         width: 85%; 
         height: auto; 
         max-width: 300px;
         padding: 15px;
     }
     
-    .profile-pic {
-        width: 150px; 
-        height: 150px;
-    }
-
-    .person p {
-        font-size: 1.8em; 
-    }
-
-    .person a {
-        font-size: 1em; 
-        padding: 8px 15px;
-        border: 2px solid #006400;
-    }
+    .profile-pic { width: 150px; height: 150px; }
+    .person p { font-size: 1.8em; }
+    .person a { font-size: 1em; padding: 8px 15px; border: 2px solid #006400; }
 }
