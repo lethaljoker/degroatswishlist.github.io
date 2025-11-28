@@ -32,7 +32,7 @@ header {
     flex-direction: column;
     align-items: center;
     padding: 5px;
-    border: 2px solid #ccc;
+    border: 32px solid #ccc;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -53,7 +53,7 @@ header h1 {
 #wishlist-header {
     text-align: center;
     width: 100%; /* Make it take full width of its parent header */
-    padding: 80px 160px; /* Adjust padding for mobile */
+    padding: 160px 320px; /* Adjust padding for mobile */
     margin: 10px; /* Adjust margin for mobile */
     background-color: white;
     border-radius: 10px;
