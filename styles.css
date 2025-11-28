@@ -27,34 +27,6 @@
 }
 
 
-/* --- NEW SLIDER BASE STYLES --- */
-.fs-slider_instance {
-    position: relative;
-    /* Keeps the navigation buttons positioned correctly */
-    
-    /* Good for centering on the page and controlling overall size: */
-    width: 90%; 
-    max-width: 600px; /* Adjust this to control the final visible width */
-    margin: 50px auto; 
-    
-    /* CRITICAL FIX: This hides slides that are off-screen */
-    overflow: hidden; 
-    
-    /* Remove flex-flow: column; if you want the buttons outside the main track */
-    /* If you keep flex-flow: column, you'll need to reposition your buttons */
-}
-
-.slider-wrapper {
-    display: flex; 
-    /* CRITICAL: Puts all slides on one horizontal line */
-    
-    transition: transform 0.5s ease-in-out; 
-    /* Allows for the smooth slide animation */
-    
-    width: 100%;
-    /* Ensure the track is wide enough */
-}
-
 .slider-item { /* Your .person cards also have this class */
     flex: 0 0 100%; 
     /* CRITICAL: Forces item to stay on one line and take 100% of the viewport width */
