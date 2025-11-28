@@ -1,3 +1,32 @@
+/* New Slider Container (The Viewport) */
+.slider-container {
+    position: relative;
+    max-width: 600px; /* Adjust this to control the visible width */
+    width: 90%; 
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 🔴 CRITICAL: This hides all slides except the one in view */
+    overflow: hidden; 
+    padding: 20px;
+}
+
+/* Update .wish-list to be the moving track */
+.wish-list {
+    /* 🔴 CRITICAL: Puts all children (slides) on one horizontal line */
+    display: flex; 
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+    transition: transform 0.5s ease-in-out; 
+    width: 100%;
+    
+    /* Reset old positioning styles */
+    max-width: none; 
+    margin: 0; 
+    gap: 0; /* Remove gap between slides to simplify calculation */
+}
+
+
 /* --- NEW SLIDER BASE STYLES --- */
 .fs-slider_instance {
     position: relative;
@@ -59,15 +88,41 @@
 }
 
 
-/* Ensure your .person card styling is nested/applied correctly */
+/* Update .person (The Individual Slide) */
 .person {
-    /* Ensure no margins interfere with the slide's 100% width */
-    margin: 0 auto; 
-    /* The large width should be defined here, but the 100% on .slider-item will constrain it */
-    width: 500px; 
-    height: 600px;
-    /* ... rest of your person card styles ... */
+    /* 🔴 CRITICAL: This forces the item to stay on one line and take 100% of the viewport width */
+    flex: 0 0 100%; 
+    
+    /* Reset old card dimensions that conflict with 100% width */
+    width: auto; 
+    height: auto; 
+    
+    /* Add desired internal card styling back */
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
+    animation: blink 3.5s infinite;
 }
+
+/* Add Slider Button Styles */
+.slider-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border-radius: 5px;
+    outline: none;
+}
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
 
 .profile-pic {
     width: 300px;
