@@ -26,16 +26,6 @@
     gap: 0; /* Remove gap between slides to simplify calculation */
 }
 
-
-.slider-item { /* Your .person cards also have this class */
-    flex: 0 0 100%; 
-    /* CRITICAL: Forces item to stay on one line and take 100% of the viewport width */
-    
-    box-sizing: border-box; 
-    padding: 0 10px; 
-    text-align: center;
-}
-
 .slider-btn {
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
     color: white;
