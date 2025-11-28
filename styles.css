@@ -1,17 +1,3 @@
-/* New Slider Container (The Viewport) */
-.slider-container {
-    position: relative;
-    max-width: 600px; /* Adjust this to control the visible width */
-    width: 90%; 
-    margin: 50px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* 🔴 CRITICAL: This hides all slides except the one in view */
-    overflow: hidden; 
-    padding: 20px;
-}
-
 /* Update .wish-list to be the moving track */
 .wish-list {
     /* 🔴 CRITICAL: Puts all children (slides) on one horizontal line */
@@ -50,17 +36,16 @@
 }
 
 
-/* Update .person (The Individual Slide) */
+/* Update .person (The Grid Cell) */
 .person {
-    /* 🔴 CRITICAL: The flex rule dictates width, not fixed pixels */
-    flex: 0 0 100%; 
-    
+    /* Set fixed size for the grid cell */
+    width: 300px;  /* Reduced from 500px, but still large */
+    height: 450px; /* Adjust height to match content */
+
+    /* Remove slider-specific rules */
+    /* ❌ DELETE: flex: 0 0 100%; */
     position: static;
-    margin: 0;
-    
-    /* Ensure the browser calculates the size based on contents */
-    width: auto; 
-    height: auto; 
+    margin: 0; 
     
     text-align: center;
     padding: 20px;
@@ -71,13 +56,12 @@
 }
 
 .profile-pic {
-    /* Reduced from 300px to 200px */
-    width: 200px; 
-    height: 200px; 
-    
+    /* Restore previous large size */
+    width: 250px; 
+    height: 250px; 
     border-radius: 50%;
     object-fit: cover; 
-    margin-bottom: 10px; 
+    margin-bottom: 15px; 
 }
 
 .person p { 
@@ -98,49 +82,25 @@
 }
 
 /* --- Media Queries for Mobile Responsiveness (Adjusted for slider) --- */
-@media (max-width: 767px) { 
-    body {
-        background-size: contain; 
-        background-position: center center; 
-        background-attachment: scroll; 
-    }
-
-    header {
-        width: 95%; 
-        max-width: none; /* Remove max-width on mobile */
+@media (max-width: 767px) {
+    /* ... existing background, header, countdown rules ... */
+    
+    .wish-list {
+        /* Restore stacked layout for mobile */
+        flex-direction: column; 
+        align-items: center; 
+        gap: 20px;
+        margin-top: 20px;
+        max-width: none;
     }
     
-    header h1 {
-    /* Reduced from 4em to 3em */
-    font-size: 3em; 
-    animation: colorChange 3s infinite;
-    }
-
-    #countdown {
-    /* Reduced from 4em to 3em */
-    font-size: 3em; 
-    color: #ff0000;
-    }
-
-    #wishlist-header {
-        padding: 15px 10px; /* Smaller padding for mobile header */
-    }
-    
-    .slider-container {
-        max-width: 95%; /* Make slider take most of the screen width */
-        padding: 10px 0;
-    }
-
-    .slider-btn {
-        padding: 10px 15px; /* Smaller buttons */
-        font-size: 1.5em;
-    }
-
     .person {
-        width: 90%; /* Person card width on mobile */
-        max-width: none; /* Remove max-width on mobile */
-        height: auto; /* Allow height to adjust */
+        /* Restore mobile sizing */
+        width: 85%; 
+        height: auto; 
+        max-width: 300px;
         padding: 15px;
+        /* Ensure no fixed height remains */
     }
     
     .profile-pic {
