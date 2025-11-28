@@ -1,14 +1,20 @@
 /* --- NEW SLIDER BASE STYLES --- */
 .slider-container {
-    position: relative; /* Allows positioning of buttons inside */
-    width: 100%;
-    max-width: 600px; /* Adjust this to control the overall width of the slider area */
-    margin: 50px auto; /* Centers the slider container */
+    position: relative;
+    
+    /* 🔴 CRITICAL FIX 1: Max width defines the visible width of one slide */
+    max-width: 600px; /* Adjust this to match the width of ONE person card + padding */
+    width: 90%; 
+    
+    margin: 50px auto;
     display: flex;
-    align-items: center; /* Vertically center buttons with slides */
-    justify-content: center; /* Initially center the slide content */
-    overflow: hidden; /* CRITICAL: Hides slides that are off-screen */
-    padding: 20px; /* Add some space around the slider */
+    align-items: center;
+    justify-content: center;
+    
+    /* 🔴 CRITICAL FIX 2: Hides all slides not currently visible */
+    overflow: hidden; 
+    
+    padding: 20px;
 }
 
 .slider-wrapper {
@@ -25,11 +31,18 @@
 
 .slider-item {
     /* Each person card is now a slider item */
-    flex: 0 0 100%; /* CRITICAL: Each slide takes 100% of the wrapper width */
-    max-width: 500px; /* Ensure card width doesn't exceed its max-width */
-    box-sizing: border-box; /* Include padding/border in width calculation */
-    padding: 0 10px; /* Add some horizontal padding to separate slides */
+    
+    /* 🔴 CRITICAL FIX: This forces the item to stay on one line and take 100% of the visible space */
+    flex: 0 0 100%; 
+    
+    /* Ensure card width calculation includes padding/border */
+    box-sizing: border-box; 
+    padding: 0 10px; 
     text-align: center;
+    
+    /* Ensure the large card dimensions are contained */
+    /* If you kept the 500px width from before, it must be contained by the 100% flex item */
+    /* Let the .person rule define the inner width, but the flex item defines the slide width */
 }
 
 .slider-btn {
