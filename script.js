@@ -18,40 +18,41 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateBirthdays() {
     const countdowns = document.querySelectorAll('.birthday-countdown');
     const now = new Date();
-    const currentYear = now.getFullYear();
+    // Set current time to midnight for accurate day counting
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
     countdowns.forEach(display => {
-        // Get the birthday from the parent or sibling element (MM-DD)
         const nameElement = display.parentElement.querySelector('.person-name');
         const birthdayStr = nameElement.getAttribute('data-birthday');
         
         if (!birthdayStr) return;
 
         const [month, day] = birthdayStr.split('-').map(Number);
-        let bdayDate = new Date(currentYear, month - 1, day);
+        let bdayDate = new Date(today.getFullYear(), month - 1, day);
 
-        // Reset the time to midnight for accurate day counting
-        now.setHours(0, 0, 0, 0);
-        bdayDate.setHours(0, 0, 0, 0);
-
-        // If the birthday already happened this year, set it to next year
-        if (now > bdayDate) {
-            bdayDate.setFullYear(currentYear + 1);
+        // If today is past the birthday, set the countdown for next year
+        if (today > bdayDate) {
+            bdayDate.setFullYear(today.getFullYear() + 1);
         }
 
-        const diffTime = bdayDate - now;
+        const diffTime = bdayDate - today;
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
         if (diffDays === 0) {
             display.innerHTML = "🎉 Happy Birthday! 🎂";
+            display.style.color = "#ff4d4d"; // Optional: Make it pop
         } else {
-            display.innerHTML = `Days until birthday: ${diffDays}`;
+            display.innerHTML = `Days until birthday: <strong>${diffDays}</strong>`;
         }
     });
 }
 
-// Run when the page loads
-document.addEventListener('DOMContentLoaded', updateBirthdays);
+// Call this function inside your existing window.onload or DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    updateBirthdays();
+    // If you have an existing Christmas countdown function, call it here too!
+});
+
 
     updateCountdown();
     // Update every 24 hours (86,400,000 milliseconds)
