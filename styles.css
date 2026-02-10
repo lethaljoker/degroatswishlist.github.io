@@ -1,45 +1,59 @@
-/* Update the .person class */
+/* --- Updated Card Styling --- */
 .person {
     width: 300px;  
-    min-height: 450px; /* Changed from height to min-height */
-    height: auto;      /* Allows card to grow with content */
-    
+    /* Changed height to min-height so it can grow if text is long */
+    min-height: 480px; 
+    height: auto;      
+
     position: static;
     margin: 0; 
-    
-    text-align: center;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
     animation: blink 3.5s infinite;
-    
-    /* Keeps things spaced out nicely */
+
+    /* Use Flexbox to align content vertically */
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
     align-items: center;
 }
 
-/* Adjust the Birthday text size */
-.birthday-countdown {
-    font-size: 1.2em; /* Slightly larger than mobile, smaller than name */
-    font-weight: bold;
-    color: #444;
-    margin: 5px 0;
+.profile-pic {
+    width: 200px; /* Reduced slightly from 250px to save space */
+    height: 200px; 
+    border-radius: 50%;
+    object-fit: cover; 
+    margin-bottom: 10px; 
 }
 
-/* Adjust name size if it's too big */
 .person p { 
-    font-size: 1.8em; /* Slightly reduced from 2em */
-    margin: 10px 0 5px 0; 
+    font-size: 1.8em; /* Scaled down from 2em */
+    margin: 5px 0; 
+    font-weight: bold;
 }
 
-/* Adjust the Amazon button size */
+/* --- Birthday Text Styling --- */
+.birthday-countdown {
+    font-size: 1.1em;
+    color: #cc0000; /* Festive red */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
 .person a { 
-    font-size: 1.2em; /* Slightly reduced from 1.5em */
-    padding: 8px 16px; 
+    font-size: 1.2em; /* Scaled down from 1.5em */
+    padding: 8px 15px; 
+    border: 3px solid #006400; 
+    border-radius: 10px; 
+    display: inline-block; 
     text-decoration: none;
     color: #006400;
-    font-weight: bold;
+    transition: 0.3s;
+}
+
+.person a:hover {
+    background-color: #006400;
+    color: white;
 }
