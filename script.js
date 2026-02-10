@@ -1,34 +1,31 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    // --- 1. Christmas Countdown Logic ---
+    // --- 1. Christmas Countdown ---
     const countdownElement = document.getElementById("countdown");
-
     function updateCountdown() {
         const today = new Date();
         const christmas = new Date(today.getFullYear(), 11, 25);
-        
-        // If today is past Dec 25th, count toward next year
         if (today.getMonth() === 11 && today.getDate() > 25) {
             christmas.setFullYear(christmas.getFullYear() + 1);
         }
-        
         const timeDifference = christmas - today;
         const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-
         if (countdownElement) {
             countdownElement.textContent = `${daysLeft} days until Christmas!`;
         }
     }
 
-    // --- 2. Birthday Countdown Logic ---
+    // --- 2. Birthday Countdown ---
     function updateBirthdays() {
         const countdowns = document.querySelectorAll('.birthday-countdown');
         const now = new Date();
-        // Normalize today to midnight for clean day counting
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
         countdowns.forEach(display => {
-            const nameElement = display.parentElement.querySelector('.person-name');
+            // It looks for the name in the same 'person' card
+            const parent = display.closest('.person');
+            const nameElement = parent ? parent.querySelector('.person-name') : null;
+            
             if (!nameElement) return;
 
             const birthdayStr = nameElement.getAttribute('data-birthday');
@@ -37,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const [month, day] = birthdayStr.split('-').map(Number);
             let bdayDate = new Date(today.getFullYear(), month - 1, day);
 
-            // If the birthday passed this year, look at next year
             if (today > bdayDate) {
                 bdayDate.setFullYear(today.getFullYear() + 1);
             }
@@ -54,13 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Run both immediately on load
+    // Run both immediately
     updateCountdown();
     updateBirthdays();
-
-    // Refresh every 24 hours to keep dates accurate if the tab stays open
-    setInterval(() => {
-        updateCountdown();
-        updateBirthdays();
-    }, 86400000); 
 });
