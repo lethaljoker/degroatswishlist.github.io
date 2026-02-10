@@ -1,6 +1,6 @@
 /* --- Updated Card Styling --- */
 .person {
-    width: 280px;         /* Slightly narrower to fit better on screens */
+    width: 250px;         /* Slightly narrower to fit better on screens */
     min-height: 400px;    /* Minimum height */
     height: auto;         /* Allows the card to grow if the text is long */
     
@@ -9,7 +9,7 @@
     justify-content: space-between; 
     align-items: center;
     
-    padding: 20px;
+    padding: 15px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
@@ -18,11 +18,13 @@
 }
 
 .profile-pic {
-    width: 180px; /* Reduced slightly from 250px to save space */
-    height: 180px; 
+    width: 180px !important;  /* Use !important to override any other settings */
+    height: 180px !important; 
+    max-width: 100%;          /* Prevents it from leaking out of the card */
     border-radius: 50%;
     object-fit: cover; 
-    margin-bottom: 10px; 
+    margin: 0 auto 10px auto; 
+    display: block;           /* Centers the image */
 }
 
 .person p { 
