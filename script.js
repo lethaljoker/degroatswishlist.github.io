@@ -1,60 +1,66 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    // --- 1. Countdown Logic ---
+    // --- 1. Christmas Countdown Logic ---
     const countdownElement = document.getElementById("countdown");
 
     function updateCountdown() {
         const today = new Date();
         const christmas = new Date(today.getFullYear(), 11, 25);
+        
+        // If today is past Dec 25th, count toward next year
         if (today.getMonth() === 11 && today.getDate() > 25) {
             christmas.setFullYear(christmas.getFullYear() + 1);
         }
+        
         const timeDifference = christmas - today;
         const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
-        countdownElement.textContent = `${daysLeft} days until Christmas!`;
+        if (countdownElement) {
+            countdownElement.textContent = `${daysLeft} days until Christmas!`;
+        }
     }
 
+    // --- 2. Birthday Countdown Logic ---
     function updateBirthdays() {
-    const countdowns = document.querySelectorAll('.birthday-countdown');
-    const now = new Date();
-    // Set current time to midnight for accurate day counting
-    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const countdowns = document.querySelectorAll('.birthday-countdown');
+        const now = new Date();
+        // Normalize today to midnight for clean day counting
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-    countdowns.forEach(display => {
-        const nameElement = display.parentElement.querySelector('.person-name');
-        const birthdayStr = nameElement.getAttribute('data-birthday');
-        
-        if (!birthdayStr) return;
+        countdowns.forEach(display => {
+            const nameElement = display.parentElement.querySelector('.person-name');
+            if (!nameElement) return;
 
-        const [month, day] = birthdayStr.split('-').map(Number);
-        let bdayDate = new Date(today.getFullYear(), month - 1, day);
+            const birthdayStr = nameElement.getAttribute('data-birthday');
+            if (!birthdayStr) return;
 
-        // If today is past the birthday, set the countdown for next year
-        if (today > bdayDate) {
-            bdayDate.setFullYear(today.getFullYear() + 1);
-        }
+            const [month, day] = birthdayStr.split('-').map(Number);
+            let bdayDate = new Date(today.getFullYear(), month - 1, day);
 
-        const diffTime = bdayDate - today;
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            // If the birthday passed this year, look at next year
+            if (today > bdayDate) {
+                bdayDate.setFullYear(today.getFullYear() + 1);
+            }
 
-        if (diffDays === 0) {
-            display.innerHTML = "🎉 Happy Birthday! 🎂";
-            display.style.color = "#ff4d4d"; // Optional: Make it pop
-        } else {
-            display.innerHTML = `Days until birthday: <strong>${diffDays}</strong>`;
-        }
-    });
-}
+            const diffTime = bdayDate - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-// Call this function inside your existing window.onload or DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    updateBirthdays();
-    // If you have an existing Christmas countdown function, call it here too!
-});
+            if (diffDays === 0) {
+                display.innerHTML = "🎉 Happy Birthday! 🎂";
+                display.style.color = "#ff4d4d";
+            } else {
+                display.innerHTML = `Days until birthday: <strong>${diffDays}</strong>`;
+            }
+        });
+    }
 
-
+    // Run both immediately on load
     updateCountdown();
-    // Update every 24 hours (86,400,000 milliseconds)
-    setInterval(updateCountdown, 86400000); 
+    updateBirthdays();
+
+    // Refresh every 24 hours to keep dates accurate if the tab stays open
+    setInterval(() => {
+        updateCountdown();
+        updateBirthdays();
+    }, 86400000); 
 });
