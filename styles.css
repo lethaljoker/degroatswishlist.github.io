@@ -1,54 +1,50 @@
-/* --- Updated Card Styling --- */
+/* --- Finalized Card Styling --- */
 .person {
-    width: 250px;         /* Slightly narrower to fit better on screens */
-    min-height: 400px;    /* Minimum height */
-    height: auto;         /* Allows the card to grow if the text is long */
+    width: 250px !important;  
+    min-height: 420px !important; 
+    height: auto !important;         
     
-    display: flex;        /* This aligns everything in a nice column */
-    flex-direction: column;
-    justify-content: space-between; 
-    align-items: center;
+    display: flex !important;        
+    flex-direction: column !important;
+    justify-content: space-between !important; 
+    align-items: center !important;
     
-    padding: 15px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
+    padding: 15px !important;
+    background-color: white !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue !important;
     animation: blink 3.5s infinite;
-    margin: 10px;
+    margin: 15px !important;
 }
 
 .profile-pic {
-    width: 180px !important;  /* Use !important to override any other settings */
-    height: 180px !important; 
-    max-width: 100%;          /* Prevents it from leaking out of the card */
-    border-radius: 50%;
-    object-fit: cover; 
-    margin: 0 auto 10px auto; 
-    display: block;           /* Centers the image */
+    width: 150px !important;  /* Shrunk a bit more to be safe */
+    height: 150px !important; 
+    border-radius: 50% !important;
+    object-fit: cover !important; 
+    margin-bottom: 10px !important;
+    border: 3px solid #006400; /* Added a green border so you can see the change */
 }
 
 .person p { 
-    font-size: 1.5em; /* Scaled down from 2em */
-    margin: 5px 0; 
+    font-size: 1.4em !important; 
+    margin: 5px 0 !important;
+    font-family: Arial, sans-serif;
 }
 
 .birthday-countdown {
-    font-size: 1rem;
-    color: #d42424; /* Festive red */
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 1rem !important;
+    color: #d42424 !important; 
+    font-weight: bold !important;
+    margin-bottom: 10px !important;
 }
 
 .person a { 
-    font-size: 1.1em; /* Scaled down from 1.5em */
-    padding: 8px 15px; 
-    border: 3px solid #006400; 
-    border-radius: 10px; 
-    text-decoration: none;
-    color: #006400;
-}
-
-.person a:hover {
-    background-color: #006400;
-    color: white;
+    font-size: 1rem !important; 
+    padding: 8px 15px !important; 
+    border: 3px solid #006400 !important; 
+    border-radius: 10px !important; 
+    text-decoration: none !important;
+    color: #006400 !important;
+    font-weight: bold !important;
 }
