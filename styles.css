@@ -1,56 +1,49 @@
 /* --- Updated Card Styling --- */
 .person {
-    width: 300px;  
-    /* Changed height to min-height so it can grow if text is long */
-    min-height: 480px; 
-    height: auto;      
-
-    position: static;
-    margin: 0; 
+    width: 280px;         /* Slightly narrower to fit better on screens */
+    min-height: 400px;    /* Minimum height */
+    height: auto;         /* Allows the card to grow if the text is long */
+    
+    display: flex;        /* This aligns everything in a nice column */
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+    
     padding: 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
     animation: blink 3.5s infinite;
-
-    /* Use Flexbox to align content vertically */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    align-items: center;
+    margin: 10px;
 }
 
 .profile-pic {
-    width: 200px; /* Reduced slightly from 250px to save space */
-    height: 200px; 
+    width: 180px; /* Reduced slightly from 250px to save space */
+    height: 180px; 
     border-radius: 50%;
     object-fit: cover; 
     margin-bottom: 10px; 
 }
 
 .person p { 
-    font-size: 1.8em; /* Scaled down from 2em */
+    font-size: 1.5em; /* Scaled down from 2em */
     margin: 5px 0; 
-    font-weight: bold;
 }
 
-/* --- Birthday Text Styling --- */
 .birthday-countdown {
-    font-size: 1.1em;
-    color: #cc0000; /* Festive red */
-    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #d42424; /* Festive red */
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .person a { 
-    font-size: 1.2em; /* Scaled down from 1.5em */
+    font-size: 1.1em; /* Scaled down from 1.5em */
     padding: 8px 15px; 
     border: 3px solid #006400; 
     border-radius: 10px; 
-    display: inline-block; 
     text-decoration: none;
     color: #006400;
-    transition: 0.3s;
 }
 
 .person a:hover {
