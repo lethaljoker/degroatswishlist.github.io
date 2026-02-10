@@ -15,14 +15,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // --- 2. Birthday Countdown ---
+    // --- 2. Birthday Countdown & Cake Logic ---
     function updateBirthdays() {
         const countdowns = document.querySelectorAll('.birthday-countdown');
         const now = new Date();
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
         countdowns.forEach(display => {
-            // It looks for the name in the same 'person' card
             const parent = display.closest('.person');
             const nameElement = parent ? parent.querySelector('.person-name') : null;
             
@@ -34,23 +33,29 @@ document.addEventListener("DOMContentLoaded", function() {
             const [month, day] = birthdayStr.split('-').map(Number);
             let bdayDate = new Date(today.getFullYear(), month - 1, day);
 
-            if (today > bdayDate) {
+            // Calculate differences
+            const isBirthday = (today.getMonth() === (month - 1) && today.getDate() === day);
+
+            if (today > bdayDate && !isBirthday) {
                 bdayDate.setFullYear(today.getFullYear() + 1);
             }
 
             const diffTime = bdayDate - today;
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-            if (diffDays === 0) {
+            if (isBirthday) {
                 display.innerHTML = "🎉 Happy Birthday! 🎂";
                 display.style.color = "#ff4d4d";
+                // Add cake to the name if not already there
+                if (!nameElement.innerHTML.includes('🎂')) {
+                    nameElement.innerHTML += ' 🎂';
+                }
             } else {
                 display.innerHTML = `Days until birthday: <strong>${diffDays}</strong>`;
             }
         });
     }
 
-    // Run both immediately
     updateCountdown();
     updateBirthdays();
 });
