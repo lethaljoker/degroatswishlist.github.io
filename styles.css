@@ -1,78 +1,9 @@
-/* styles.css */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-image: url('./images/xmaspic.png');
-    background-size: cover; 
-    background-position: center center; 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #000000;
-    position: relative; 
-}
-
-main {
-    position: relative;
-    width: 100%;
-}
-
-@keyframes colorChange {
-    0% { color: #ff0000; }
-    33% { color: #006400; }
-    66% { color: #ffd700; }
-    100% { color: #ff0000; }
-}
-
-@keyframes blink {
-    0% { box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue; }
-    25% { box-shadow: 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red; }
-    50% { box-shadow: 0 0 10px 5px green, 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow; }
-    75% { box-shadow: 0 0 10px 5px blue, 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green; }
-    100% { box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue; }
-}
-
-header {
-    margin: 5px auto; 
-    width: 90%; 
-    max-width: 1000px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    padding: 5px;
-    border: 32px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: colorChange 3s infinite;
-}
-
-header h1 { font-size: 4em; animation: colorChange 3s infinite; }
-#countdown { font-size: 4em; color: #ff0000; }
-#wishlist-header { 
-    text-align: center; width: 100%; 
-    padding: 30px 60px; margin: 10px; 
-    background-color: white; border-radius: 10px; 
-    box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue; 
-    animation: blink 3.5s infinite;
-}
-
-.wish-list {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    
-    gap: 60px 80px; 
-    max-width: 1700px; 
-    margin: 50px auto 0 auto;
-    
-    position: static;
-    height: auto;
-}
-
+/* Update the .person class */
 .person {
     width: 300px;  
-    height: 450px; 
-
+    min-height: 450px; /* Changed from height to min-height */
+    height: auto;      /* Allows card to grow with content */
+    
     position: static;
     margin: 0; 
     
@@ -82,66 +13,33 @@ header h1 { font-size: 4em; animation: colorChange 3s infinite; }
     border-radius: 10px;
     box-shadow: 0 0 10px 5px red, 0 0 10px 5px yellow, 0 0 10px 5px green, 0 0 10px 5px blue;
     animation: blink 3.5s infinite;
+    
+    /* Keeps things spaced out nicely */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
 }
 
-.profile-pic {
-    width: 250px; 
-    height: 250px; 
-    border-radius: 50%;
-    object-fit: cover; 
-    margin-bottom: 15px; 
+/* Adjust the Birthday text size */
+.birthday-countdown {
+    font-size: 1.2em; /* Slightly larger than mobile, smaller than name */
+    font-weight: bold;
+    color: #444;
+    margin: 5px 0;
 }
 
+/* Adjust name size if it's too big */
 .person p { 
-    font-size: 2em; 
-    margin-top: 10px; 
-    margin-bottom: 10px; 
+    font-size: 1.8em; /* Slightly reduced from 2em */
+    margin: 10px 0 5px 0; 
 }
 
+/* Adjust the Amazon button size */
 .person a { 
-    font-size: 1.5em; 
-    padding: 10px 20px; 
-    border: 4px solid #006400; 
-    border-radius: 10px; 
-    display: inline-block; 
-    margin-top: 10px; 
-}
-
-/* --- Media Queries for Mobile Responsiveness --- */
-@media (max-width: 767px) { 
-    body {
-        background-size: contain; 
-        background-position: center center; 
-        background-attachment: scroll; 
-    }
-    
-    header { width: 95%; max-width: none; }
-    header h1 { font-size: 2.5em; }
-    #countdown { font-size: 1.5em; }
-    #wishlist-header { padding: 15px 10px; }
-    
-    .wish-list {
-        flex-direction: column; 
-        align-items: center; 
-        gap: 20px;
-        margin-top: 20px;
-        max-width: none;
-    }
-    
-    .person {
-        width: 85%; 
-        height: auto; 
-        max-width: 300px;
-        padding: 15px;
-    }
-
-    .birthday-countdown {
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-    color: #666;
-}
-    
-    .profile-pic { width: 150px; height: 150px; }
-    .person p { font-size: 1.8em; }
-    .person a { font-size: 1em; padding: 8px 15px; border: 2px solid #006400; }
+    font-size: 1.2em; /* Slightly reduced from 1.5em */
+    padding: 8px 16px; 
+    text-decoration: none;
+    color: #006400;
+    font-weight: bold;
 }
