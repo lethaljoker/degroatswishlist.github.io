@@ -48,3 +48,8 @@
     color: #006400 !important;
     font-weight: bold !important;
 }
+
+.wish-list img {
+    width: 150px !important;
+    height: 150px !important;
+}
