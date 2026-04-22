@@ -3,82 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wish List</title>
-    <link rel="stylesheet" href="styles.css?v=3.0">
+    <title>DeGroat Family Wishlist</title>
+    <style>
+        :root {
+            --bg-color: #0b0b0b;
+            --card-bg: #161616;
+            --accent-glow: #ff2e2e;
+            --text-color: #ffffff;
+            --secondary-text: #ff4d4d;
+            --border-color: #2e7d32;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .countdown-header {
+            color: #ccc;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* Responsive Grid */
+        .wishlist-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Profile Card */
+        .person-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid transparent;
+            box-shadow: 0 0 15px rgba(255, 46, 46, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .person-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px var(--accent-glow);
+            border-color: var(--accent-glow);
+        }
+
+        .profile-pic-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border: 3px solid var(--border-color);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h2 {
+            margin: 10px 0;
+            font-size: 1.8rem;
+        }
+
+        .birthday-info {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .days-left {
+            color: var(--secondary-text);
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Action Buttons */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: opacity 0.2s;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        .amazon-btn { background-color: #ff9900; color: #111; }
+        .walmart-btn { background-color: #0071dc; }
+        .general-btn { background-color: var(--border-color); }
+
+    </style>
 </head>
 <body>
-    <header>
-        <div id="wishlist-header">
-            <h1>Wish List</h1>
-        </div>
-        <div id="countdown"></div>
-    </header>
 
-    <main>
-        <div class="wish-list">
-            
-            <div class="person" id="alexander-card">
-                <a href="https://www.amazon.com/hz/wishlist/ls/2ED58EZS7OCKC?ref_=wl_share" target="_blank">
-                    <img src="images/Alex25.jpg" alt="Alexander" class="profile-pic">
-                </a>
-                <p class="person-name" data-birthday="06-23">Alexander</p>
-                <p> Birthday: June-23 </p>
-                <div class="birthday-countdown"></div>
-                <a href="https://www.amazon.com/hz/wishlist/ls/2ED58EZS7OCKC?ref_=wl_share" target="_blank">View Wishlist</a>
+    <h1>Wish List</h1>
+    <p class="countdown-header" id="christmas-countdown"></p>
+
+    <div class="wishlist-container">
+
+        <div class="person-card">
+            <div class="profile-pic-container">
+                <img src="path_to_alexander_image.png" alt="Alexander">
             </div>
-            
-            <div class="person" id="kaelynne-card">
-                <a href="https://www.amazon.com/hz/wishlist/ls/4AJNA9XIZX61?ref_=wl_share" target="_blank">
-                    <img src="images/Kae25.jpg" alt="Kaelynne" class="profile-pic">
-                </a>
-                <p class="person-name" data-birthday="05-17">Kaelynne</p>
-                <p> Birthday: May-17 </p>
-                <div class="birthday-countdown"></div>
-                <a href="https://www.amazon.com/hz/wishlist/ls/4AJNA9XIZX61?ref_=wl_share" target="_blank">View Wishlist</a>
+            <h2>Alexander</h2>
+            <div class="birthday-info">
+                Birthday: June 23
+                <span class="days-left" id="days-alexander"></span>
             </div>
-            
-            <div class="person" id="mathew-card">
-                <a href="https://www.amazon.com/hz/wishlist/ls/1QCEO70LDGI6A?ref_=wl_share" target="_blank">
-                    <img src="images/Mathew25.jpg" alt="Mathew" class="profile-pic">
-                </a>
-                <p class="person-name" data-birthday="07-12">Mathew</p>
-                <p> Birthday: July-12 </p>
-                <div class="birthday-countdown"></div>
-                <a href="https://www.amazon.com/hz/wishlist/ls/1QCEO70LDGI6A?ref_=wl_share" target="_blank">View Wishlist</a>
+            <div class="button-group">
+                <a href="URL_HERE" class="btn amazon-btn">Amazon Wishlist</a>
+                <a href="URL_HERE" class="btn walmart-btn">Walmart Registry</a>
             </div>
-            
-            <div class="person" id="lilah-card">
-                <a href="https://www.amazon.com/hz/wishlist/ls/2RC1EZS3NDB1M?ref_=wl_share" target="_blank">
-                    <img src="images/lilah25.jpg" alt="Lilah" class="profile-pic">
-                </a>
-                <p class="person-name" data-birthday="08-04">Lilah</p>
-                <p> Birthday: August-4 </p>
-                <div class="birthday-countdown"></div>
-                <a href="https://www.amazon.com/hz/wishlist/ls/2RC1EZS3NDB1M?ref_=wl_share" target="_blank">View Wishlist</a>
-            </div>
-            
-            <div class="person" id="dustin-card">
-                <a href="https://www.amazon.com/hz/wishlist/ls/T24B644746MR?ref_=wl_share" target="_blank">
-                    <img src="images/DNC2.jpg" alt="Dustin" class="profile-pic">
-                </a>
-                <p class="person-name" data-birthday="07-09">Dustin</p>
-                <p> Birthday: July-09 </p>
-                <div class="birthday-countdown"></div>
-                <a href="https://www.amazon.com/hz/wishlist/ls/T24B644746MR?ref_=wl_share" target="_blank">View Wishlist</a>
-            </div>
-            
-            <div class="person" id="cura-card">
-                <a href="https://www.amazon.com/hz/wishlist/ls/P9PDQUYSDZSH?ref_=wl_share" target="_blank">
-                    <img src="images/DNC2.jpg" alt="Cura" class="profile-pic">
-                </a>
-                <p class="person-name" data-birthday="08-01">Cura</p>
-                <p> Birthday: August-1 </p>
-                <div class="birthday-countdown"></div>
-                <a href="https://www.amazon.com/hz/wishlist/ls/P9PDQUYSDZSH?ref_=wl_share" target="_blank">View Wishlist</a>
-            </div>
-            
         </div>
-    </main>
-    <script src="script.js"></script>
+
+        <div class="person-card">
+            <div class="profile-pic-container">
+                <img src="path_to_kaelynne_image.png" alt="Kaelynne">
+            </div>
+            <h2>Kaelynne</h2>
+            <div class="birthday-info">
+                Birthday: May 17
+                <span class="days-left" id="days-kaelynne"></span>
+            </div>
+            <div class="button-group">
+                <a href="URL_HERE" class="btn amazon-btn">Amazon Wishlist</a>
+                <a href="URL_HERE" class="btn walmart-btn">Walmart Registry</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function updateCountdowns() {
+            const now = new Date();
+            const year = now.getFullYear();
+
+            // Christmas Countdown
+            const christmas = new Date(year, 11, 25);
+            if (now > christmas) christmas.setFullYear(year + 1);
+            const diffXmas = Math.ceil((christmas - now) / (1000 * 60 * 60 * 24));
+            document.getElementById('christmas-countdown').innerText = `${diffXmas} days until Christmas!`;
+
+            // Birthday Calc Function
+            function getDaysUntil(month, day) {
+                let bday = new Date(year, month - 1, day);
+                if (now > bday) bday.setFullYear(year + 1);
+                return Math.ceil((bday - now) / (1000 * 60 * 60 * 24));
+            }
+
+            document.getElementById('days-alexander').innerText = `Days until birthday: ${getDaysUntil(6, 23)}`;
+            document.getElementById('days-kaelynne').innerText = `Days until birthday: ${getDaysUntil(5, 17)}`;
+        }
+
+        updateCountdowns();
+    </script>
 </body>
 </html>
