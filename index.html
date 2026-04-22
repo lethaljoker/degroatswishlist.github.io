@@ -12,6 +12,7 @@
             --text-color: #ffffff;
             --secondary-text: #ff4d4d;
             --border-color: #2e7d32;
+            --birthday-gold: #ffd700;
         }
 
         body {
@@ -36,7 +37,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             max-width: 1400px;
-            margin: 0 auto;
+            margin: 0 auto 50px;
         }
 
         .person-card {
@@ -54,6 +55,11 @@
             border-color: var(--accent-glow);
         }
 
+        .birthday-glow {
+            border-color: var(--birthday-gold) !important;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6) !important;
+        }
+
         .profile-pic-container {
             width: 120px;
             height: 120px;
@@ -61,7 +67,7 @@
             border: 3px solid var(--border-color);
             border-radius: 50%;
             overflow: hidden;
-            background: #222; /* Placeholder color */
+            background: #222;
         }
 
         .profile-pic-container img { width: 100%; height: 100%; object-fit: cover; }
@@ -77,6 +83,9 @@
             margin-top: 5px;
         }
 
+        .is-birthday { color: var(--birthday-gold); font-size: 1.1rem; display: block; margin-bottom: 10px; }
+
+        /* Buttons */
         .button-group { display: flex; flex-direction: column; gap: 8px; }
 
         .btn {
@@ -88,11 +97,64 @@
             font-size: 0.9rem;
             color: white;
             transition: opacity 0.2s;
+            cursor: pointer;
+            border: none;
         }
 
         .btn:hover { opacity: 0.8; }
         .amazon-btn { background-color: #ff9900; color: #111; }
         .walmart-btn { background-color: #0071dc; }
+        .wish-btn { background-color: var(--birthday-gold); color: #000; margin-top: 5px; }
+
+        /* Modal / Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            background-color: #222;
+            margin: 15% auto;
+            padding: 20px;
+            border: 2px solid var(--birthday-gold);
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+
+        .modal-content input, .modal-content textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            background: #111;
+            border: 1px solid #444;
+            color: white;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        /* Message Board */
+        #message-board {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #161616;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #333;
+            text-align: left;
+        }
+
+        .message-entry {
+            border-bottom: 1px solid #333;
+            padding: 10px 0;
+        }
+
+        .message-entry:last-child { border-bottom: none; }
+        .sender-name { color: var(--birthday-gold); font-weight: bold; }
+        .receiver-name { color: var(--secondary-text); font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -101,94 +163,168 @@
     <p class="countdown-header" id="christmas-countdown"></p>
 
     <div class="wishlist-container">
-        <div class="person-card">
+        <div class="person-card" id="card-alexander">
             <div class="profile-pic-container"><img src="images/Alex26.jpg" alt="Alexander"></div>
             <h2>Alexander</h2>
             <div class="birthday-info">June 23<span class="days-left" id="days-alexander"></span></div>
             <div class="button-group">
                 <a href="https://www.amazon.com/hz/wishlist/ls/2ED58EZS7OCKC?ref_=wl_share" class="btn amazon-btn">Amazon List</a>
                 <a href="https://www.walmart.com/lists/birthday-wishlist/66ef4ad2-187e-41b4-9008-1a9e68165a9d" class="btn walmart-btn">Walmart List</a>
+                <div id="wish-container-alexander"></div>
             </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card" id="card-kaelynne">
             <div class="profile-pic-container"><img src="images/Kae26.jpg" alt="Kaelynne"></div>
             <h2>Kaelynne</h2>
             <div class="birthday-info">May 17<span class="days-left" id="days-kaelynne"></span></div>
             <div class="button-group">
                 <a href="https://www.amazon.com/hz/wishlist/ls/4AJNA9XIZX61?ref_=wl_share" class="btn amazon-btn">Amazon List</a>
                 <a href="https://www.walmart.com/lists/birthday-wishlist/1afa0e17-9be8-478f-b907-24f596046f7d" class="btn walmart-btn">Walmart List</a>
+                <div id="wish-container-kaelynne"></div>
             </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card" id="card-mathew">
             <div class="profile-pic-container"><img src="images/Mathew26.jpg" alt="Mathew"></div>
             <h2>Mathew</h2>
             <div class="birthday-info">July 12<span class="days-left" id="days-mathew"></span></div>
             <div class="button-group">
                 <a href="https://www.amazon.com/hz/wishlist/ls/1QCEO70LDGI6A?ref_=wl_share" class="btn amazon-btn">Amazon List</a>
                 <a href="https://www.walmart.com/lists/birthday-wishlist/c3961d35-9766-4f56-bf0e-eb43d7848b84" class="btn walmart-btn">Walmart List</a>
+                <div id="wish-container-mathew"></div>
             </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card" id="card-lilah">
             <div class="profile-pic-container"><img src="images/Lilah26.jpg" alt="Lilah"></div>
             <h2>Lilah</h2>
             <div class="birthday-info">August 4<span class="days-left" id="days-lilah"></span></div>
             <div class="button-group">
                 <a href="https://www.amazon.com/hz/wishlist/ls/2RC1EZS3NDB1M?ref_=wl_share" class="btn amazon-btn">Amazon List</a>
                 <a href="https://www.walmart.com/lists/birthday-wishlist/68a62daa-54b1-4ae9-924b-d823129e09a6" class="btn walmart-btn">Walmart List</a>
+                <div id="wish-container-lilah"></div>
             </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card" id="card-cura">
             <div class="profile-pic-container"><img src="images/CND26.jpg" alt="Cura"></div>
             <h2>Cura</h2>
-            <div class="birthday-info" id="info-cura">August 1<span class="days-left" id="days-cura"></span></div>
+            <div class="birthday-info">August 1<span class="days-left" id="days-cura"></span></div>
             <div class="button-group">
                 <a href="https://www.amazon.com/hz/wishlist/ls/P9PDQUYSDZSH?ref_=wl_fv_le" class="btn amazon-btn">Amazon List</a>
                 <a href="#" class="btn walmart-btn">Walmart List</a>
+                <div id="wish-container-cura"></div>
             </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card" id="card-dustin">
             <div class="profile-pic-container"><img src="images/CND26.jpg" alt="Dustin"></div>
             <h2>Dustin</h2>
-            <div class="birthday-info" id="info-dustin">July 9<span class="days-left" id="days-dustin"></span></div>
+            <div class="birthday-info">July 9<span class="days-left" id="days-dustin"></span></div>
             <div class="button-group">
                 <a href="https://www.amazon.com/hz/wishlist/ls/T24B644746MR?ref_=wl_share" class="btn amazon-btn">Amazon List</a>
                 <a href="https://www.walmart.com/lists/birthday-wishlist/9f672590-30e9-4fd2-868a-f5bae5b791c7" class="btn walmart-btn">Walmart List</a>
+                <div id="wish-container-dustin"></div>
             </div>
         </div>
     </div>
 
+    <div id="message-board">
+        <h3 style="margin-top:0; border-bottom: 1px solid #444; padding-bottom: 10px;">Birthday Wishes 🎈</h3>
+        <div id="message-list">
+            <p style="color:#666;">No wishes yet. Be the first!</p>
+        </div>
+    </div>
+
+    <div id="wishModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Send a Wish</h3>
+            <input type="text" id="senderName" placeholder="Your Name">
+            <textarea id="senderMessage" rows="4" placeholder="Type your birthday wish here..."></textarea>
+            <button class="btn wish-btn" onclick="submitWish()">Send Wish 🎂</button>
+            <button class="btn" style="background:none;" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
     <script>
+        let currentReceiver = "";
+
         function updateCountdowns() {
             const now = new Date();
             const year = now.getFullYear();
+            const currentMonth = now.getMonth() + 1;
+            const currentDate = now.getDate();
 
             // Christmas
             const christmas = new Date(year, 11, 25);
-            if (now > christmas) christmas.setFullYear(year + 1);
-            const diffXmas = Math.ceil((christmas - now) / (1000 * 60 * 60 * 24));
+            let nextXmas = new Date(year, 11, 25);
+            if (now > christmas) nextXmas.setFullYear(year + 1);
+            const diffXmas = Math.ceil((nextXmas - now) / (1000 * 60 * 60 * 24));
             document.getElementById('christmas-countdown').innerText = `${diffXmas} days until Christmas!`;
 
-            function setDays(id, month, day) {
-                if(!month || !day) return;
-                let bday = new Date(year, month - 1, day);
-                if (now > bday) bday.setFullYear(year + 1);
-                let diff = Math.ceil((bday - now) / (1000 * 60 * 60 * 24));
-                document.getElementById(id).innerText = `Days until birthday: ${diff}`;
+            function setDays(id, cardId, wishId, name, month, day) {
+                const displayElement = document.getElementById(id);
+                const cardElement = document.getElementById(cardId);
+                const wishContainer = document.getElementById(wishId);
+                
+                if (currentMonth === month && currentDate === day) {
+                    displayElement.innerHTML = `<span class="is-birthday">🎈 Today's My Birthday! 🎂 🎈</span>`;
+                    cardElement.classList.add('birthday-glow');
+                    wishContainer.innerHTML = `<button class="btn wish-btn" onclick="openModal('${name}')">Send Birthday Wish</button>`;
+                } else {
+                    let bday = new Date(year, month - 1, day);
+                    if (now > bday) bday.setFullYear(year + 1);
+                    let diff = Math.ceil((bday - now) / (1000 * 60 * 60 * 24));
+                    displayElement.innerText = `Days until birthday: ${diff}`;
+                    cardElement.classList.remove('birthday-glow');
+                    wishContainer.innerHTML = "";
+                }
             }
 
-            setDays('days-alexander', 6, 23);
-            setDays('days-kaelynne', 5, 17);
-            setDays('days-mathew', 7, 12);
-            setDays('days-lilah', 8, 4);
-            setDays('days-cura', 8, 1);
-            setDays('days-dustin', 7, 9);
+            setDays('days-alexander', 'card-alexander', 'wish-container-alexander', 'Alexander', 6, 23);
+            setDays('days-kaelynne', 'card-kaelynne', 'wish-container-kaelynne', 'Kaelynne', 5, 17);
+            setDays('days-mathew', 'card-mathew', 'wish-container-mathew', 'Mathew', 7, 12);
+            setDays('days-lilah', 'card-lilah', 'wish-container-lilah', 'Lilah', 8, 4);
+            setDays('days-cura', 'card-cura', 'wish-container-cura', 'Cura', 8, 1);
+            setDays('days-dustin', 'card-dustin', 'wish-container-dustin', 'Dustin', 7, 9);
         }
+
+        function openModal(name) {
+            currentReceiver = name;
+            document.getElementById('modalTitle').innerText = `Send a Wish to ${name}`;
+            document.getElementById('wishModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('wishModal').style.display = "none";
+        }
+
+        function submitWish() {
+            const name = document.getElementById('senderName').value;
+            const msg = document.getElementById('senderMessage').value;
+            
+            if(name && msg) {
+                const list = document.getElementById('message-list');
+                if(list.innerText.includes("No wishes yet")) list.innerHTML = "";
+                
+                const entry = document.createElement('div');
+                entry.className = 'message-entry';
+                entry.innerHTML = `<span class="sender-name">${name}</span> <span class="receiver-name">to ${currentReceiver}</span><br>${msg}`;
+                
+                list.prepend(entry);
+                
+                // Clear and close
+                document.getElementById('senderName').value = "";
+                document.getElementById('senderMessage').value = "";
+                closeModal();
+            } else {
+                alert("Please fill in both fields!");
+            }
+        }
+
         updateCountdowns();
+        setInterval(updateCountdowns, 3600000);
     </script>
 </body>
 </html>
