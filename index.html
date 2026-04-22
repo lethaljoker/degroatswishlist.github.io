@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeGroat Family Wishlist</title>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
     <style>
         :root {
             --bg-color: #0b0b0b;
@@ -85,7 +88,6 @@
 
         .is-birthday { color: var(--birthday-gold); font-size: 1.1rem; display: block; margin-bottom: 10px; }
 
-        /* Buttons */
         .button-group { display: flex; flex-direction: column; gap: 8px; }
 
         .btn {
@@ -106,7 +108,6 @@
         .walmart-btn { background-color: #0071dc; }
         .wish-btn { background-color: var(--birthday-gold); color: #000; margin-top: 5px; }
 
-        /* Modal / Popup */
         .modal {
             display: none;
             position: fixed;
@@ -136,7 +137,6 @@
             border-radius: 5px;
         }
 
-        /* Message Board */
         #message-board {
             max-width: 800px;
             margin: 40px auto;
@@ -149,7 +149,7 @@
 
         .message-entry {
             border-bottom: 1px solid #333;
-            padding: 10px 0;
+            padding: 15px 0;
         }
 
         .message-entry:last-child { border-bottom: none; }
@@ -232,9 +232,7 @@
 
     <div id="message-board">
         <h3 style="margin-top:0; border-bottom: 1px solid #444; padding-bottom: 10px;">Birthday Wishes 🎈</h3>
-        <div id="message-list">
-            <p style="color:#666;">No wishes yet. Be the first!</p>
-        </div>
+        <div id="message-list">Loading wishes...</div>
     </div>
 
     <div id="wishModal" class="modal">
@@ -248,7 +246,43 @@
     </div>
 
     <script>
+        // --- FIREBASE CONFIGURATION ---
+        // REPLACE THE BLOCK BELOW WITH YOUR ACTUAL KEYS FROM FIREBASE CONSOLE
+        const firebaseConfig = {
+            apiKey: "AIzaSyAOYytOCzDM2rIC4cxSkXXPaAwNEHe6gx8",
+            authDomain: "degroat-wishlist.firebaseapp.com",
+            databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
+            projectId: "degroat-wishlist",
+            storageBucket: "degroat-wishlist.firebasestorage.app",
+            messagingSenderId: "79384278379",
+            appId: "1:79384278379:web:b7e07d3ccc761ab0d3082e"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+        const wishesRef = database.ref('wishes');
+
         let currentReceiver = "";
+
+        // Listen for new messages in Realtime
+        wishesRef.on('value', (snapshot) => {
+            const list = document.getElementById('message-list');
+            list.innerHTML = "";
+            const data = snapshot.val();
+            
+            if (data) {
+                // Convert object to array and reverse to show newest first
+                Object.values(data).reverse().forEach(wish => {
+                    const entry = document.createElement('div');
+                    entry.className = 'message-entry';
+                    entry.innerHTML = `<span class="sender-name">${wish.sender}</span> <span class="receiver-name">to ${wish.receiver}</span><br>${wish.message}`;
+                    list.appendChild(entry);
+                });
+            } else {
+                list.innerHTML = `<p style="color:#666;">No wishes yet. Be the first!</p>`;
+            }
+        });
 
         function updateCountdowns() {
             const now = new Date();
@@ -256,7 +290,6 @@
             const currentMonth = now.getMonth() + 1;
             const currentDate = now.getDate();
 
-            // Christmas
             const christmas = new Date(year, 11, 25);
             let nextXmas = new Date(year, 11, 25);
             if (now > christmas) nextXmas.setFullYear(year + 1);
@@ -287,7 +320,7 @@
             setDays('days-mathew', 'card-mathew', 'wish-container-mathew', 'Mathew', 7, 12);
             setDays('days-lilah', 'card-lilah', 'wish-container-lilah', 'Lilah', 8, 4);
             setDays('days-cura', 'card-cura', 'wish-container-cura', 'Cura', 8, 1);
-            setDays('days-dustin', 'card-dustin', 'wish-container-dustin', 'Dustin', 4, 22);
+            setDays('days-dustin', 'card-dustin', 'wish-container-dustin', 'Dustin', 7, 9);
         }
 
         function openModal(name) {
@@ -301,20 +334,18 @@
         }
 
         function submitWish() {
-            const name = document.getElementById('senderName').value;
-            const msg = document.getElementById('senderMessage').value;
+            const sender = document.getElementById('senderName').value;
+            const message = document.getElementById('senderMessage').value;
             
-            if(name && msg) {
-                const list = document.getElementById('message-list');
-                if(list.innerText.includes("No wishes yet")) list.innerHTML = "";
+            if(sender && message) {
+                // Save to Firebase
+                wishesRef.push({
+                    sender: sender,
+                    receiver: currentReceiver,
+                    message: message,
+                    timestamp: Date.now()
+                });
                 
-                const entry = document.createElement('div');
-                entry.className = 'message-entry';
-                entry.innerHTML = `<span class="sender-name">${name}</span> <span class="receiver-name">to ${currentReceiver}</span><br>${msg}`;
-                
-                list.prepend(entry);
-                
-                // Clear and close
                 document.getElementById('senderName').value = "";
                 document.getElementById('senderMessage').value = "";
                 closeModal();
