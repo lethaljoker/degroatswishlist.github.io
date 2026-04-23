@@ -108,41 +108,44 @@
         .walmart-btn { background-color: #0071dc; }
         .wish-btn { background-color: var(--birthday-gold); color: #000; margin-top: 5px; }
 
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
             z-index: 1000;
             left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.85);
         }
 
         .modal-content {
-            background-color: #222;
-            margin: 15% auto;
-            padding: 20px;
+            background-color: #1a1a1a;
+            margin: 15vh auto;
+            padding: 25px;
             border: 2px solid var(--birthday-gold);
-            width: 90%;
+            width: 85%;
             max-width: 400px;
-            border-radius: 10px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
         .modal-content input, .modal-content textarea {
             width: 100%;
             margin: 10px 0;
-            padding: 10px;
-            background: #111;
+            padding: 12px;
+            background: #000;
             border: 1px solid #444;
             color: white;
             box-sizing: border-box;
-            border-radius: 5px;
+            border-radius: 8px;
         }
 
+        /* Message Board */
         #message-board {
             max-width: 800px;
             margin: 40px auto;
-            background: #161616;
+            background: var(--card-bg);
             border-radius: 15px;
-            padding: 20px;
+            padding: 25px;
             border: 1px solid #333;
             text-align: left;
         }
@@ -154,7 +157,7 @@
 
         .message-entry:last-child { border-bottom: none; }
         .sender-name { color: var(--birthday-gold); font-weight: bold; }
-        .receiver-name { color: var(--secondary-text); font-size: 0.8rem; }
+        .receiver-name { color: var(--secondary-text); font-size: 0.8rem; font-style: italic; }
     </style>
 </head>
 <body>
@@ -168,8 +171,8 @@
             <h2>Alexander</h2>
             <div class="birthday-info">June 23<span class="days-left" id="days-alexander"></span></div>
             <div class="button-group">
-                <a href="https://www.amazon.com/hz/wishlist/ls/2ED58EZS7OCKC?ref_=wl_share" class="btn amazon-btn">Amazon List</a>
-                <a href="https://www.walmart.com/lists/birthday-wishlist/66ef4ad2-187e-41b4-9008-1a9e68165a9d" class="btn walmart-btn">Walmart List</a>
+                <a href="https://www.amazon.com/hz/wishlist/ls/2ED58EZS7OCKC?ref_=wl_share" class="btn amazon-btn" target="_blank">Amazon List</a>
+                <a href="https://www.walmart.com/lists/birthday-wishlist/66ef4ad2-187e-41b4-9008-1a9e68165a9d" class="btn walmart-btn" target="_blank">Walmart List</a>
                 <div id="wish-container-alexander"></div>
             </div>
         </div>
@@ -179,8 +182,8 @@
             <h2>Kaelynne</h2>
             <div class="birthday-info">May 17<span class="days-left" id="days-kaelynne"></span></div>
             <div class="button-group">
-                <a href="https://www.amazon.com/hz/wishlist/ls/4AJNA9XIZX61?ref_=wl_share" class="btn amazon-btn">Amazon List</a>
-                <a href="https://www.walmart.com/lists/birthday-wishlist/1afa0e17-9be8-478f-b907-24f596046f7d" class="btn walmart-btn">Walmart List</a>
+                <a href="https://www.amazon.com/hz/wishlist/ls/4AJNA9XIZX61?ref_=wl_share" class="btn amazon-btn" target="_blank">Amazon List</a>
+                <a href="https://www.walmart.com/lists/birthday-wishlist/1afa0e17-9be8-478f-b907-24f596046f7d" class="btn walmart-btn" target="_blank">Walmart List</a>
                 <div id="wish-container-kaelynne"></div>
             </div>
         </div>
@@ -190,8 +193,8 @@
             <h2>Mathew</h2>
             <div class="birthday-info">July 12<span class="days-left" id="days-mathew"></span></div>
             <div class="button-group">
-                <a href="https://www.amazon.com/hz/wishlist/ls/1QCEO70LDGI6A?ref_=wl_share" class="btn amazon-btn">Amazon List</a>
-                <a href="https://www.walmart.com/lists/birthday-wishlist/c3961d35-9766-4f56-bf0e-eb43d7848b84" class="btn walmart-btn">Walmart List</a>
+                <a href="https://www.amazon.com/hz/wishlist/ls/1QCEO70LDGI6A?ref_=wl_share" class="btn amazon-btn" target="_blank">Amazon List</a>
+                <a href="https://www.walmart.com/lists/birthday-wishlist/c3961d35-9766-4f56-bf0e-eb43d7848b84" class="btn walmart-btn" target="_blank">Walmart List</a>
                 <div id="wish-container-mathew"></div>
             </div>
         </div>
@@ -201,8 +204,8 @@
             <h2>Lilah</h2>
             <div class="birthday-info">August 4<span class="days-left" id="days-lilah"></span></div>
             <div class="button-group">
-                <a href="https://www.amazon.com/hz/wishlist/ls/2RC1EZS3NDB1M?ref_=wl_share" class="btn amazon-btn">Amazon List</a>
-                <a href="https://www.walmart.com/lists/birthday-wishlist/68a62daa-54b1-4ae9-924b-d823129e09a6" class="btn walmart-btn">Walmart List</a>
+                <a href="https://www.amazon.com/hz/wishlist/ls/2RC1EZS3NDB1M?ref_=wl_share" class="btn amazon-btn" target="_blank">Amazon List</a>
+                <a href="https://www.walmart.com/lists/birthday-wishlist/68a62daa-54b1-4ae9-924b-d823129e09a6" class="btn walmart-btn" target="_blank">Walmart List</a>
                 <div id="wish-container-lilah"></div>
             </div>
         </div>
@@ -212,7 +215,7 @@
             <h2>Cura</h2>
             <div class="birthday-info">August 1<span class="days-left" id="days-cura"></span></div>
             <div class="button-group">
-                <a href="https://www.amazon.com/hz/wishlist/ls/P9PDQUYSDZSH?ref_=wl_fv_le" class="btn amazon-btn">Amazon List</a>
+                <a href="https://www.amazon.com/hz/wishlist/ls/P9PDQUYSDZSH?ref_=wl_fv_le" class="btn amazon-btn" target="_blank">Amazon List</a>
                 <a href="#" class="btn walmart-btn">Walmart List</a>
                 <div id="wish-container-cura"></div>
             </div>
@@ -223,8 +226,8 @@
             <h2>Dustin</h2>
             <div class="birthday-info">July 9<span class="days-left" id="days-dustin"></span></div>
             <div class="button-group">
-                <a href="https://www.amazon.com/hz/wishlist/ls/T24B644746MR?ref_=wl_share" class="btn amazon-btn">Amazon List</a>
-                <a href="https://www.walmart.com/lists/birthday-wishlist/9f672590-30e9-4fd2-868a-f5bae5b791c7" class="btn walmart-btn">Walmart List</a>
+                <a href="https://www.amazon.com/hz/wishlist/ls/T24B644746MR?ref_=wl_share" class="btn amazon-btn" target="_blank">Amazon List</a>
+                <a href="https://www.walmart.com/lists/birthday-wishlist/9f672590-30e9-4fd2-868a-f5bae5b791c7" class="btn walmart-btn" target="_blank">Walmart List</a>
                 <div id="wish-container-dustin"></div>
             </div>
         </div>
@@ -241,21 +244,20 @@
             <input type="text" id="senderName" placeholder="Your Name">
             <textarea id="senderMessage" rows="4" placeholder="Type your birthday wish here..."></textarea>
             <button class="btn wish-btn" onclick="submitWish()">Send Wish 🎂</button>
-            <button class="btn" style="background:none;" onclick="closeModal()">Cancel</button>
+            <button class="btn" style="background:none; margin-top:5px;" onclick="closeModal()">Cancel</button>
         </div>
     </div>
 
     <script>
-        // --- FIREBASE CONFIGURATION ---
-        // REPLACE THE BLOCK BELOW WITH YOUR ACTUAL KEYS FROM FIREBASE CONSOLE
+        // --- YOUR CONFIGURATION ---
         const firebaseConfig = {
-            apiKey: "AIzaSyAOYytOCzDM2rIC4cxSkXXPaAwNEHe6gx8",
+            apiKey: "AIzaSyAOYytOCzDM2rIC4cxSkXXPaAwNeHe6gx8",
             authDomain: "degroat-wishlist.firebaseapp.com",
-            databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
             projectId: "degroat-wishlist",
             storageBucket: "degroat-wishlist.firebasestorage.app",
             messagingSenderId: "79384278379",
-            appId: "1:79384278379:web:b7e07d3ccc761ab0d3082e"
+            appId: "1:79384278379:web:b7e07d3ccc761ab0d3082e",
+            measurementId: "G-GFF8NW02N6"
         };
 
         // Initialize Firebase
@@ -265,14 +267,14 @@
 
         let currentReceiver = "";
 
-        // Listen for new messages in Realtime
+        // Listen for Realtime Updates
         wishesRef.on('value', (snapshot) => {
             const list = document.getElementById('message-list');
             list.innerHTML = "";
             const data = snapshot.val();
             
             if (data) {
-                // Convert object to array and reverse to show newest first
+                // Show newest first
                 Object.values(data).reverse().forEach(wish => {
                     const entry = document.createElement('div');
                     entry.className = 'message-entry';
@@ -320,7 +322,7 @@
             setDays('days-mathew', 'card-mathew', 'wish-container-mathew', 'Mathew', 7, 12);
             setDays('days-lilah', 'card-lilah', 'wish-container-lilah', 'Lilah', 8, 4);
             setDays('days-cura', 'card-cura', 'wish-container-cura', 'Cura', 8, 1);
-            setDays('days-dustin', 'card-dustin', 'wish-container-dustin', 'Dustin', 4, 22);
+            setDays('days-dustin', 'card-dustin', 'wish-container-dustin', 'Dustin', 7, 9);
         }
 
         function openModal(name) {
@@ -334,11 +336,10 @@
         }
 
         function submitWish() {
-            const sender = document.getElementById('senderName').value;
-            const message = document.getElementById('senderMessage').value;
+            const sender = document.getElementById('senderName').value.trim();
+            const message = document.getElementById('senderMessage').value.trim();
             
             if(sender && message) {
-                // Save to Firebase
                 wishesRef.push({
                     sender: sender,
                     receiver: currentReceiver,
