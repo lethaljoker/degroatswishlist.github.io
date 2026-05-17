@@ -107,6 +107,19 @@
         .amazon-btn { background-color: #ff9900; color: #111; }
         .walmart-btn { background-color: #0071dc; }
         .wish-btn { background-color: var(--birthday-gold); color: #000; margin-top: 5px; }
+        
+        /* Message Board Header Controls */
+        .board-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .board-header h3 { margin: 0; }
+        .post-now-btn { background-color: var(--border-color); color: #fff; padding: 6px 12px; font-size: 0.85rem; }
 
         /* Modal */
         .modal {
@@ -156,10 +169,10 @@
         }
 
         .message-time {
-    color: #888;
-    font-size: 0.75rem;
-    margin-left: 10px;
-}
+            color: #888;
+            font-size: 0.75rem;
+            margin-left: 10px;
+        }
 
         .message-entry:last-child { border-bottom: none; }
         .sender-name { color: var(--birthday-gold); font-weight: bold; }
@@ -240,16 +253,19 @@
     </div>
 
     <div id="message-board">
-        <h3 style="margin-top:0; border-bottom: 1px solid #444; padding-bottom: 10px;">Birthday Wishes 🎈</h3>
-        <div id="message-list">Loading wishes...</div>
+        <div class="board-header">
+            <h3>Family Message Board 🎈</h3>
+            <button class="btn post-now-btn" onclick="openModal('Everyone')">Post a Message</button>
+        </div>
+        <div id="message-list">Loading board messages...</div>
     </div>
 
     <div id="wishModal" class="modal">
         <div class="modal-content">
-            <h3 id="modalTitle">Send a Wish</h3>
+            <h3 id="modalTitle">Send a Message</h3>
             <input type="text" id="senderName" placeholder="Your Name">
-            <textarea id="senderMessage" rows="4" placeholder="Type your birthday wish here..."></textarea>
-            <button class="btn wish-btn" onclick="submitWish()">Send Wish 🎂</button>
+            <textarea id="senderMessage" rows="4" placeholder="Type your message here..."></textarea>
+            <button class="btn wish-btn" onclick="submitWish()">Post Message 📝</button>
             <button class="btn" style="background:none; margin-top:5px;" onclick="closeModal()">Cancel</button>
         </div>
     </div>
@@ -271,7 +287,7 @@
         const database = firebase.database();
         const wishesRef = database.ref('wishes');
 
-        let currentReceiver = "";
+        let currentReceiver = "Everyone";
 
         // Listen for Realtime Updates
         wishesRef.on('value', (snapshot) => {
@@ -279,32 +295,32 @@
             list.innerHTML = "";
             const data = snapshot.val();
             
-           if (data) {
-        // Show newest first
-        Object.values(data).reverse().forEach(wish => {
-            const entry = document.createElement('div');
-            entry.className = 'message-entry';
-            
-            // Format the date from the timestamp
-            const dateObj = new Date(wish.timestamp);
-            const formattedDate = dateObj.toLocaleDateString('en-US', {
-                month: 'short',
-                day: 'numeric',
-                year: 'numeric'
-            });
+            if (data) {
+                Object.values(data).reverse().forEach(wish => {
+                    const entry = document.createElement('div');
+                    entry.className = 'message-entry';
+                    
+                    const dateObj = new Date(wish.timestamp);
+                    const formattedDate = dateObj.toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
 
-            entry.innerHTML = `
-                <span class="sender-name">${wish.sender}</span> 
-                <span class="receiver-name">to ${wish.receiver}</span>
-                <span class="message-time">${formattedDate}</span>
-                <br>${wish.message}
-            `;
-            list.appendChild(entry);
+                    // Check if targeted to a specific person or general group board
+                    const contextTarget = wish.receiver === "Everyone" ? "" : ` <span class="receiver-name">to ${wish.receiver}</span>`;
+
+                    entry.innerHTML = `
+                        <span class="sender-name">${wish.sender}</span>${contextTarget}
+                        <span class="message-time">${formattedDate}</span>
+                        <br>${wish.message}
+                    `;
+                    list.appendChild(entry);
+                });
+            } else {
+                list.innerHTML = `<p style="color:#666;">No messages yet. Be the first to say hello!</p>`;
+            }
         });
-    } else {
-        list.innerHTML = `<p style="color:#666;">No wishes yet. Be the first!</p>`;
-    }
-});
 
         function updateCountdowns() {
             const now = new Date();
@@ -347,7 +363,11 @@
 
         function openModal(name) {
             currentReceiver = name;
-            document.getElementById('modalTitle').innerText = `Send a Wish to ${name}`;
+            if (name === "Everyone") {
+                document.getElementById('modalTitle').innerText = "Post to Family Board";
+            } else {
+                document.getElementById('modalTitle').innerText = `Send a Birthday Wish to ${name}`;
+            }
             document.getElementById('wishModal').style.display = "block";
         }
 
